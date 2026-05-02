@@ -1,0 +1,31 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.bellum.reaping"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "bellum:reaping"
+        },
+        "enchanted": "attacker"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 21,
+    "per_level_above_first": 11
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 11
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#bellum:reaping_enchantable",
+  "weight": 10
+}

@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "net.enderboy500.bellum.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExampleMixin",
+		"PlayerMixin",
+		"MobMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

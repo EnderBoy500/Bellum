@@ -1,0 +1,32 @@
+{
+  "item.bellum.wooden_sickle": "Wooden Sickle",
+  "item.bellum.stone_sickle": "Stone Sickle",
+  "item.bellum.copper_sickle": "Copper Sickle",
+  "item.bellum.iron_sickle": "Iron Sickle",
+  "item.bellum.golden_sickle": "Golden Sickle",
+  "item.bellum.diamond_sickle": "Diamond Sickle",
+  "item.bellum.netherite_sickle": "Netherite Sickle",
+  "item.bellum.wooden_scythe": "Wooden Scythe",
+  "item.bellum.stone_scythe": "Stone Scythe",
+  "item.bellum.copper_scythe": "Copper Scythe",
+  "item.bellum.iron_scythe": "Iron Scythe",
+  "item.bellum.golden_scythe": "Golden Scythe",
+  "item.bellum.diamond_scythe": "Diamond Scythe",
+  "item.bellum.netherite_scythe": "Netherite Scythe",
+  "item.bellum.wooden_dagger": "Wooden Dagger",
+  "item.bellum.stone_dagger": "Stone Dagger",
+  "item.bellum.copper_dagger": "Copper Dagger",
+  "item.bellum.iron_dagger": "Iron Dagger",
+  "item.bellum.golden_dagger": "Golden Dagger",
+  "item.bellum.diamond_dagger": "Diamond Dagger",
+  "item.bellum.netherite_dagger": "Netherite Dagger",
+  "item.bellum.kunai": "Kunai",
+  "item.bellum.tipped_kunai": "Tipped Kunai",
+
+  "enchantment.bellum.reaping": "Reaping",
+  "enchantment.bellum.reaping.desc": "Allows the player to reap and stun your targets",
+
+  "sounds.bellum.soul_sweep_attack": "Soul Sweep Attack",
+
+  "itemgroup.bellum": "Bellum"
+}

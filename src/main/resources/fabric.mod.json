@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "bellum",
+	"version": "${version}",
+	"name": "Bellum",
+	"description": "An arsenal of weapons to cover your needs!",
+	"authors": [
+		"Enderboy500",
+		"Ciph3rJ"
+	],
+	"license": "ARR",
+	"icon": "assets/bellum/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.enderboy500.bellum.Bellum"
+		],
+		"client": [
+			"net.enderboy500.bellum.client.BellumClient"
+		],
+		"fabric-datagen": [
+			"net.enderboy500.bellum.data.BellumDataGenerator"
+		]
+	},
+	"mixins": [
+		"bellum.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*",
+		"enderlib": ">=1.4.1-1.21.11"
+	}
+}

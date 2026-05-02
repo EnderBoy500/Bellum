@@ -1,0 +1,8 @@
+{
+  "soul_sweep_attack": {
+    "subtitle": "sounds.bellum.soul_sweep_attack",
+    "sounds": [
+      "bellum:soul_sweep_attack"
+    ]
+  }
+}

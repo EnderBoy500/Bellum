@@ -1,0 +1,21 @@
+package net.enderboy500.bellum.client;
+
+import net.enderboy500.bellum.client.entity.renderer.ThrownKunaiRenderer;
+import net.enderboy500.bellum.content.BellumEntities;
+import net.enderboy500.bellum.content.BellumParticleTypes;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.particle.AttackSweepParticle;
+
+public class BellumClient implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+/*        EntityRendererRegistry.register(BellumEntities.TRAINING_DUMMY, TrainingDummyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(BellumEntityModelLayers.TRAINING_DUMMY, TrainingDummy::getTexturedModelData);*/
+        EntityRendererRegistry.register(BellumEntities.THROWN_KUNAI, ThrownKunaiRenderer::new);
+
+        ParticleFactoryRegistry.getInstance().register(BellumParticleTypes.CIPHERED_SWEEP, AttackSweepParticle.Provider::new);
+        ParticleFactoryRegistry.getInstance().register(BellumParticleTypes.SOUL_SWEEP, AttackSweepParticle.Provider::new);
+    }
+}

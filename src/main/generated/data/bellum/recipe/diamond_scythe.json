@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:diamond",
+    "/": "minecraft:stick",
+    "|": "minecraft:diamond_hoe"
+  },
+  "pattern": [
+    "## ",
+    " |#",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bellum:diamond_scythe"
+  }
+}

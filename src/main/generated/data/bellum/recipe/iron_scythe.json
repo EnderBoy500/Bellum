@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "/": "minecraft:stick",
+    "|": "minecraft:iron_hoe"
+  },
+  "pattern": [
+    "## ",
+    " |#",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bellum:iron_scythe"
+  }
+}

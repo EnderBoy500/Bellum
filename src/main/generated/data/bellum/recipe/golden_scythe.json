@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:gold_ingot",
+    "/": "minecraft:stick",
+    "|": "minecraft:golden_hoe"
+  },
+  "pattern": [
+    "## ",
+    " |#",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bellum:golden_scythe"
+  }
+}
