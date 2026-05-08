@@ -13,9 +13,10 @@ public class BellumSkins {
 
     public static final ItemSkin DIVINE_DAGGER = new NamedWeaponSkin("divine_dagger", Bellum.id("divine_dagger"), WeaponSkin.Modifier.create(BellumSoundEvents.SOUL_SWEEP_ATTACK), Component.translatable("item.skin.bellum.divine_dagger"));
     public static final ItemSkin MOTION_ICON = new ItemSkin("motion_icon", Bellum.id("motion_icon"));
+    public static final ItemSkin MOTION_ICON_2D = new ItemSkin("motion_icon_2d", Bellum.id("motion_icon_2d"));
 
     public static void loadAndRegister() {
         ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_SICKLE, BellumItems.NETHERITE_SICKLE), List.of(CIPHERED_SICKLE, SOUL_SICKLE));
-        ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_DAGGER, BellumItems.NETHERITE_DAGGER), List.of(DIVINE_DAGGER, MOTION_ICON));
+        ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_DAGGER, BellumItems.NETHERITE_DAGGER), List.of(DIVINE_DAGGER, MOTION_ICON, MOTION_ICON_2D));
     }
 }

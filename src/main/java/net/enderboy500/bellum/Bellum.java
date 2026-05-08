@@ -13,11 +13,20 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.gamerules.GameRule;
+import net.minecraft.world.level.gamerules.GameRuleCategory;
+import net.minecraft.world.level.gamerules.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,26 +62,27 @@ public class Bellum implements ModInitializer {
 		BellumTags.loadTags();
 		BellumDataComponents.loadDataComponents();
 
+
+
 		///////////
 
 		//FabricDefaultAttributeRegistry.register(BellumEntities.TRAINING_DUMMY, TrainingDummyEntity.createAttributes());
 
 		///////////
-
-		DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
-			for (Item item : ItemUtils.getAll(BuiltInRegistries.ITEM)) {
-				if (item instanceof BucketItem || item instanceof PotionItem || item.getDefaultInstance().is(Items.POWDER_SNOW_BUCKET) || item.getDefaultInstance().is(Items.MILK_BUCKET) || item.getDefaultInstance().is(Items.ENCHANTED_BOOK)) {
-					modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 16));
+			DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
+				for (Item item : ItemUtils.getAll(BuiltInRegistries.ITEM)) {
+					if ((item instanceof BucketItem || item instanceof PotionItem || item.getDefaultInstance().is(Items.POWDER_SNOW_BUCKET) || item.getDefaultInstance().is(Items.MILK_BUCKET) || item.getDefaultInstance().is(Items.ENCHANTED_BOOK))) {
+						modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 16));
+					}
+					if ((item instanceof EnderpearlItem || item instanceof SnowballItem || item instanceof EggItem)) {
+						modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 64));
+					}
 				}
-				if (item instanceof EnderpearlItem || item instanceof SnowballItem || item instanceof EggItem) {
-					modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 64));
-				}
-			}
-		});
+			});
 
 		CanEntityHealEvent.EVENT.register(livingEntity -> {
-            return !livingEntity.hasEffect(BellumMobEffects.BLEEDING);
-        });
+			return !livingEntity.hasEffect(BellumMobEffects.BLEEDING);
+		});
 
 		LOGGER.info("Finished Initializing Bellum");
 	}

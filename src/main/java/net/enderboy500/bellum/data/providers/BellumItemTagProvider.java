@@ -2,6 +2,7 @@ package net.enderboy500.bellum.data.providers;
 
 import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.util.BellumTags;
+import net.enderboy500.enderlib.util.EnderlibTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -44,23 +45,33 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.NETHERITE_DAGGER)
         ;
 
+        valueLookupBuilder(EnderlibTags.SKIN_INCOMPATIBILITY)
+                .add(BellumItems.KUNAI)
+        ;
+
         valueLookupBuilder(ItemTags.SWEEPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(ItemTags.VANISHING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)

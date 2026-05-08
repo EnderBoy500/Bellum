@@ -1,7 +1,7 @@
 package net.enderboy500.bellum.data.generators;
 
 import net.enderboy500.bellum.content.BellumItems;
-import net.enderboy500.enderlib.helper.RecipeGeneratorHelper;
+import net.enderboy500.enderlib.helper.EnderlibRecipeGenerator;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BellumRecipeGenerator extends RecipeGeneratorHelper {
+public class BellumRecipeGenerator extends EnderlibRecipeGenerator {
     public BellumRecipeGenerator(HolderLookup.Provider registries, RecipeOutput exporter) {
         super(registries, exporter);
     }
@@ -41,9 +41,23 @@ public class BellumRecipeGenerator extends RecipeGeneratorHelper {
         generateScythe(Items.GOLD_INGOT, Items.GOLDEN_HOE, BellumItems.GOLDEN_SCYTHE);
         generateScythe(Items.DIAMOND, Items.DIAMOND_HOE, BellumItems.DIAMOND_SCYTHE);
 
+        this.shaped(RecipeCategory.COMBAT, BellumItems.WOODEN_DAGGER).define('#', ItemTags.PLANKS).define('/', Items.STICK).pattern("#").pattern("/")
+                .unlockedBy(getHasName(BellumItems.WOODEN_DAGGER), has(ItemTags.PLANKS)).save(output);
+        this.shaped(RecipeCategory.COMBAT, BellumItems.STONE_DAGGER).define('#', ItemTags.STONE_CRAFTING_MATERIALS).define('/', Items.STICK).pattern("#").pattern("/")
+                .unlockedBy(getHasName(BellumItems.STONE_DAGGER), has(ItemTags.STONE_CRAFTING_MATERIALS)).save(output);
+        generateDagger(Items.COPPER_INGOT, BellumItems.COPPER_DAGGER);
+        generateDagger(Items.IRON_INGOT, BellumItems.IRON_DAGGER);
+        generateDagger(Items.GOLD_INGOT, BellumItems.GOLDEN_DAGGER);
+        generateDagger(Items.DIAMOND,  BellumItems.DIAMOND_DAGGER);
+
         this.shaped(RecipeCategory.COMBAT, BellumItems.KUNAI, 2).define('#', Items.IRON_INGOT).define('N', Items.IRON_NUGGET)
                 .define('/', Items.STICK).pattern("#").pattern("/").pattern("N")
                 .unlockedBy(getHasName(BellumItems.KUNAI), has(Items.IRON_INGOT)).save(output);
+    }
+
+    public void generateDagger(ItemLike base, Item outputItem) {
+        this.shaped(RecipeCategory.COMBAT, outputItem).define('#', base).define('/', Items.STICK).pattern("#").pattern("/")
+                .unlockedBy(getHasName(outputItem), has(base)).save(output);
     }
 
     public void generateSickle(ItemLike base, Item outputItem) {

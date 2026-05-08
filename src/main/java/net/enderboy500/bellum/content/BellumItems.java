@@ -5,7 +5,9 @@ import net.enderboy500.bellum.item.ScytheItem;
 import net.enderboy500.bellum.item.SickleItem;
 import net.enderboy500.enderlib.helper.RegistryHelper;
 import net.enderboy500.enderlib.item.component.EnderLibComponents;
+import net.enderboy500.enderlib.util.ItemUtils;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ToolMaterial;
@@ -59,8 +61,6 @@ public class BellumItems {
     public static Item register(String id, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         return RegistryHelper.registerItem(id, itemFactory, settings);
     }
-
-
 
     public static void loadItems() {}
 }

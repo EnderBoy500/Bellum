@@ -24,8 +24,8 @@ public class SickleItem extends Item implements ToolFunction {
     public void hurtEnemy(ItemStack itemStack, LivingEntity livingEntity, LivingEntity livingEntity2) {
         if (!ItemUtils.hasEnchantment(this.getDefaultInstance(), "reaping")) {
             Random random = new Random();
-            int effectChance = random.nextInt(10) + 1;
-            if (effectChance == 10) {
+            int effectChance = random.nextInt(8) + 1;
+            if (effectChance == 4) {
                 livingEntity.addEffect(new MobEffectInstance(BellumMobEffects.BLEEDING, 400, 0));
             }
         }
