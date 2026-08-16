@@ -3,6 +3,7 @@
 	"package": "net.enderboy500.bellum.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"AnvilMenuMixin",
 		"ExampleMixin",
 		"MobMixin",
 		"MappedRegistryMixin",

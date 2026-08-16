@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "/": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    "#/#",
+    " / "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bellum:iron_battle_axe"
+  }
+}

@@ -2,9 +2,11 @@ package net.enderboy500.bellum.content;
 
 import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
+import net.enderboy500.bellum.item.BattleAxeItem;
 import net.enderboy500.bellum.projectile.KunaiItem;
 import net.enderboy500.bellum.item.ScytheItem;
 import net.enderboy500.bellum.item.SickleItem;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 
@@ -56,6 +58,14 @@ public class BellumItems {
     public static final Item IRON_KUNAI = KunaiItem.registerKunai("iron_kunai", 4.5f);
     public static final Item DIAMOND_KUNAI = KunaiItem.registerKunai("diamond_kunai", 4.75f);
     public static final Item NETHERITE_KUNAI = KunaiItem.registerKunai("netherite_kunai", 5f);
+
+    public static final Item WOODEN_BATTLE_AXE = register("wooden_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.WOOD, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item COPPER_BATTLE_AXE = register("copper_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.COPPER, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item STONE_BATTLE_AXE = register("stone_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.STONE, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item GOLDEN_BATTLE_AXE = register("golden_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.GOLD, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item IRON_BATTLE_AXE = register("iron_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.IRON, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item DIAMOND_BATTLE_AXE = register("diamond_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.DIAMOND, 6.5f, -3F, properties), new Item.Properties());
+    public static final Item NETHERITE_BATTLE_AXE = register("netherite_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.NETHERITE, 6.5f, -3F, properties), new Item.Properties());
 
 //    public static final Item TRAINING_DUMMY = register("training_dummy", TrainingDummyItem::new, new Item.Properties());
 

@@ -30,6 +30,14 @@ public class BellumCreativeModeTabs {
                         output.accept(BellumItems.DIAMOND_SCYTHE);
                         output.accept(BellumItems.NETHERITE_SCYTHE);
 
+                        output.accept(BellumItems.WOODEN_BATTLE_AXE);
+                        output.accept(BellumItems.STONE_BATTLE_AXE);
+                        output.accept(BellumItems.COPPER_BATTLE_AXE);
+                        output.accept(BellumItems.IRON_BATTLE_AXE);
+                        output.accept(BellumItems.GOLDEN_BATTLE_AXE);
+                        output.accept(BellumItems.DIAMOND_BATTLE_AXE);
+                        output.accept(BellumItems.NETHERITE_BATTLE_AXE);
+
                         output.accept(BellumItems.WOODEN_DAGGER);
                         output.accept(BellumItems.STONE_DAGGER);
                         output.accept(BellumItems.COPPER_DAGGER);

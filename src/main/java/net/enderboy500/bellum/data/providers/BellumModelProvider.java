@@ -35,6 +35,14 @@ public class BellumModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(BellumItems.DIAMOND_DAGGER, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerators.generateFlatItem(BellumItems.NETHERITE_DAGGER, ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModelGenerators.generateFlatItem(BellumItems.WOODEN_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.STONE_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.COPPER_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.IRON_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.GOLDEN_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.DIAMOND_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.NETHERITE_BATTLE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+
         itemModelGenerators.generateFlatItem(BellumItems.WOODEN_KUNAI, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerators.generateFlatItem(BellumItems.COPPER_KUNAI, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerators.generateFlatItem(BellumItems.STONE_KUNAI, ModelTemplates.FLAT_HANDHELD_ITEM);

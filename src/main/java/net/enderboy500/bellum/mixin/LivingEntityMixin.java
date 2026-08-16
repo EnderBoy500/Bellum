@@ -1,5 +1,7 @@
 package net.enderboy500.bellum.mixin;
 
+import io.github.ciph3rj.cipherlib.util.ItemUtils;
+import net.enderboy500.bellum.content.BellumDamageTypes;
 import net.enderboy500.bellum.util.BellumTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -8,6 +10,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -42,6 +45,9 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow public abstract ItemStack getMainHandItem();
 
+    @Shadow
+    public abstract @org.jspecify.annotations.Nullable ItemStack getItemBlockingWith();
+
     public LivingEntityMixin(EntityType<?> type, Level world) {
         super(type, world);
     }
@@ -59,6 +65,14 @@ public abstract class LivingEntityMixin extends Entity {
                         this.spawnAtLocation(serverLevel, stack);
                 }
             }
+        }
+    }
+
+    @Inject(method = "blockUsingItem", at = @At("TAIL"))
+    private void shield(ServerLevel serverLevel, LivingEntity livingEntity, CallbackInfo ci) {
+        ItemStack stack = this.getItemBlockingWith();
+        if (ItemUtils.hasEnchantment(stack, "reflect")) {
+            livingEntity.hurt(serverLevel.damageSources().source(BellumDamageTypes.REFLECTED), (float) livingEntity.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * 0.5f);
         }
     }
 }

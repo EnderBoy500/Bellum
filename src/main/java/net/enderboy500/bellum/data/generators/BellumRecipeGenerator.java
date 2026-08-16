@@ -60,9 +60,21 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
         generateKunai(Items.IRON_INGOT, BellumItems.IRON_KUNAI);
         generateKunai(Items.GOLD_INGOT, BellumItems.GOLDEN_KUNAI);
         generateKunai(Items.DIAMOND, BellumItems.DIAMOND_KUNAI);
+
+        generateBattleAxe(BellumItems.COPPER_BATTLE_AXE, Items.COPPER_INGOT);
+        generateBattleAxe(BellumItems.IRON_BATTLE_AXE, Items.IRON_INGOT);
+        generateBattleAxe(BellumItems.GOLDEN_BATTLE_AXE, Items.GOLD_INGOT);
+        generateBattleAxe(BellumItems.DIAMOND_BATTLE_AXE, Items.DIAMOND);
+
         this.shaped(RecipeCategory.COMBAT, BellumItems.NETHERITE_KUNAI, 8).define('#', BellumItems.DIAMOND_KUNAI)
                 .define('N', Items.NETHERITE_INGOT).pattern("###").pattern("#N#").pattern("###")
                 .unlockedBy(getHasName(BellumItems.NETHERITE_KUNAI), has(Items.NETHERITE_INGOT)).save(output);
+
+        this.shaped(RecipeCategory.COMBAT, BellumItems.WOODEN_BATTLE_AXE).define('#', ItemTags.PLANKS).define('/', Items.STICK).pattern("###").pattern("#/#").pattern(" / ")
+                .unlockedBy(getHasName(BellumItems.WOODEN_BATTLE_AXE), has(ItemTags.PLANKS)).save(output);
+        this.shaped(RecipeCategory.COMBAT, BellumItems.STONE_BATTLE_AXE).define('#', ItemTags.STONE_CRAFTING_MATERIALS).define('/', Items.STICK).pattern("###").pattern("#/#").pattern(" / ")
+                .unlockedBy(getHasName(BellumItems.STONE_BATTLE_AXE), has(ItemTags.STONE_CRAFTING_MATERIALS)).save(output);
+
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {
@@ -77,6 +89,11 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
 
     public void generateScythe(ItemLike base, ItemLike hoe, Item outputItem) {
         this.shaped(RecipeCategory.COMBAT, outputItem).define('#', base).define('|', hoe).define('/', Items.STICK).pattern("## ").pattern(" |#").pattern("/  ")
+                .unlockedBy(getHasName(outputItem), has(base)).save(output);
+    }
+
+    public void generateBattleAxe(Item outputItem,ItemLike base) {
+        this.shaped(RecipeCategory.COMBAT, outputItem).define('#', base).define('/', Items.STICK).pattern("###").pattern("#/#").pattern(" / ")
                 .unlockedBy(getHasName(outputItem), has(base)).save(output);
     }
 

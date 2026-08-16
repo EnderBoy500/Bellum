@@ -1,12 +1,17 @@
 // 1.21.11	-999999999-01-01T00:00:00	Bellum/Tags for minecraft:item
+21c8278f5acc4bb760343bbf14aadb7b7863f190 data/bellum/tags/item/battle_axes.json
 4058207a14e3ec7d661ac92f1322797b78778b0d data/bellum/tags/item/daggers.json
 3d3c331e49c0b184363fb5441e4cd69b85a025aa data/bellum/tags/item/kunais.json
 06f4e955c922152daf0535f18b6eb63c280dac5c data/bellum/tags/item/reaping_enchantable.json
+ea404a0ab7a6f867ef91e88ed35fb7429c480842 data/bellum/tags/item/reflect_enchantable.json
 6f09cb62c2c00eb55891d8ab9212c63a63fb6d04 data/bellum/tags/item/scythes.json
 f1746c36607bf007ae3de80243d2fae510ea6d36 data/bellum/tags/item/sickles.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/durability.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/fire_aspect.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/melee_weapon.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/sharp_weapon.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/sweeping.json
-5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/vanishing.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/durability.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/fire_aspect.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/melee_weapon.json
+d82bd9f88c339e88a36f9020ad9ae0d4b4dc2c36 data/minecraft/tags/item/enchantable/mining.json
+d82bd9f88c339e88a36f9020ad9ae0d4b4dc2c36 data/minecraft/tags/item/enchantable/mining_loot.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/sharp_weapon.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/sweeping.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/vanishing.json
+1dcf6adf871f13271423b680608e42695cd92d31 data/minecraft/tags/item/enchantable/weapon.json

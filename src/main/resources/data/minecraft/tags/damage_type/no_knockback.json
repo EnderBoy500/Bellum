@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bellum:drained_soul"
+    "bellum:drained_soul",
+    "bellum:reflected"
   ]
 }

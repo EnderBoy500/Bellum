@@ -6,6 +6,7 @@ import net.minecraft.world.damagesource.DamageType;
 
 public class BellumDamageTypes {
     public static final ResourceKey<DamageType> DRAINED_SOUL = RegistryHelper.registerDamageType("drained_soul");
+    public static final ResourceKey<DamageType> REFLECTED = RegistryHelper.registerDamageType("reflected");
 
     public static void loadDamageTypes() {}
 }

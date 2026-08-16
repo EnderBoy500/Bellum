@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -53,35 +54,68 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.NETHERITE_KUNAI)
         ;
 
+        valueLookupBuilder(BellumTags.BATTLE_AXE)
+                .add(BellumItems.WOODEN_BATTLE_AXE)
+                .add(BellumItems.STONE_BATTLE_AXE)
+                .add(BellumItems.COPPER_BATTLE_AXE)
+                .add(BellumItems.IRON_BATTLE_AXE)
+                .add(BellumItems.GOLDEN_BATTLE_AXE)
+                .add(BellumItems.DIAMOND_BATTLE_AXE)
+                .add(BellumItems.NETHERITE_BATTLE_AXE)
+        ;
+
         valueLookupBuilder(ItemTags.SWEEPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
+        ;
+        valueLookupBuilder(ItemTags.MINING_ENCHANTABLE)
+                .addTag(BellumTags.BATTLE_AXE)
+                .addTag(BellumTags.SCYTHES)
+        ;
+        valueLookupBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
+                .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
+        ;
+        valueLookupBuilder(ItemTags.WEAPON_ENCHANTABLE)
+                .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
+        ;
+        valueLookupBuilder(BellumTags.REFLECT_ENCHANTABLE)
+                .add(Items.SHIELD)
         ;
         valueLookupBuilder(ItemTags.VANISHING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
