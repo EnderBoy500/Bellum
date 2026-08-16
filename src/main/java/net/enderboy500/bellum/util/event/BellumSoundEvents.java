@@ -1,6 +1,6 @@
 package net.enderboy500.bellum.util.event;
 
-import net.enderboy500.enderlib.helper.RegistryHelper;
+import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import net.minecraft.sounds.SoundEvent;
 
 public class BellumSoundEvents {

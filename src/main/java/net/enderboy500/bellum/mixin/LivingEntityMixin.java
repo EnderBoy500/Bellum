@@ -1,0 +1,64 @@
+package net.enderboy500.bellum.mixin;
+
+import net.enderboy500.bellum.util.BellumTags;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Optional;
+import java.util.Random;
+
+@Mixin(LivingEntity.class)
+public abstract class LivingEntityMixin extends Entity {
+    @Shadow
+    @Nullable public abstract ItemEntity drop(ItemStack stack, boolean dropAtSelf, boolean retainOwnership);
+
+    @Shadow public abstract boolean isHolding(Item item);
+
+    @Shadow @Nullable
+    public abstract LivingEntity getLastHurtByMob();
+
+    @Shadow @Nullable public abstract LivingEntity getLastHurtMob();
+
+    @Shadow public abstract LivingEntity getLastAttacker();
+
+    @Shadow public abstract ItemStack getMainHandItem();
+
+    public LivingEntityMixin(EntityType<?> type, Level world) {
+        super(type, world);
+    }
+    @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"))
+    private void drops(ServerLevel world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
+        Random random = new Random();
+        int randomDropChance = random.nextInt(5) + 1;
+        if (this.getLastAttacker() != null) {
+            if (this.getLastAttacker().isHolding(Items.TRIDENT) && world instanceof ServerLevel serverLevel) {
+                Optional<Holder<Enchantment>> optional = serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getRandomElementOf(BellumTags.DROPPED_BY_ELDER_GUARDIAN, serverLevel.random);
+                Holder<Enchantment> holder = optional.get();
+                if (holder != null) {
+                    ItemStack stack = EnchantmentHelper.createBook(new EnchantmentInstance(holder, 1));
+                    if (this.getType() == EntityType.ELDER_GUARDIAN && randomDropChance <= 2)
+                        this.spawnAtLocation(serverLevel, stack);
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "bellum:item/kunai"
+    "layer0": "bellum:item/iron_kunai"
   }
 }

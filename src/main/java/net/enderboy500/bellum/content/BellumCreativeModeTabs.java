@@ -38,7 +38,13 @@ public class BellumCreativeModeTabs {
                         output.accept(BellumItems.DIAMOND_DAGGER);
                         output.accept(BellumItems.NETHERITE_DAGGER);
 
-                        output.accept(BellumItems.KUNAI);
+                        output.accept(BellumItems.WOODEN_KUNAI);
+                        output.accept(BellumItems.STONE_KUNAI);
+                        output.accept(BellumItems.COPPER_KUNAI);
+                        output.accept(BellumItems.IRON_KUNAI);
+                        output.accept(BellumItems.GOLDEN_KUNAI);
+                        output.accept(BellumItems.DIAMOND_KUNAI);
+                        output.accept(BellumItems.NETHERITE_KUNAI);
                     }
                     )).build());
 

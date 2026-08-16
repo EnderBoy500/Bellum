@@ -4,8 +4,11 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ExampleMixin",
+		"MobMixin",
+		"MappedRegistryMixin",
 		"PlayerMixin",
-		"MobMixin"
+		"TridentItemMixin",
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

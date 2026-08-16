@@ -1,12 +1,12 @@
 // 1.21.11	-999999999-01-01T00:00:00	Bellum/Tags for minecraft:item
 4058207a14e3ec7d661ac92f1322797b78778b0d data/bellum/tags/item/daggers.json
+3d3c331e49c0b184363fb5441e4cd69b85a025aa data/bellum/tags/item/kunais.json
 06f4e955c922152daf0535f18b6eb63c280dac5c data/bellum/tags/item/reaping_enchantable.json
 6f09cb62c2c00eb55891d8ab9212c63a63fb6d04 data/bellum/tags/item/scythes.json
 f1746c36607bf007ae3de80243d2fae510ea6d36 data/bellum/tags/item/sickles.json
-a55c2dc698c5fd70aea6cbeb33376a560efd0641 data/enderlib/tags/item/skin_incompatibility.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/durability.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/fire_aspect.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/melee_weapon.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/sharp_weapon.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/sweeping.json
-421eee04d2a16cf311cf4f2e2f6387d6f4478a8b data/minecraft/tags/item/enchantable/vanishing.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/durability.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/fire_aspect.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/melee_weapon.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/sharp_weapon.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/sweeping.json
+5b2526c6ffffd2f7318a5c2d7e88bebc74d4e2f8 data/minecraft/tags/item/enchantable/vanishing.json

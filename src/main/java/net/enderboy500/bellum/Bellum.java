@@ -1,32 +1,19 @@
 package net.enderboy500.bellum;
 
+import io.github.ciph3rj.cipherlib.Cipher;
+import io.github.ciph3rj.cipherlib.events.CanEntityHealEvent;
+import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.content.*;
-import net.enderboy500.bellum.entity.TrainingDummyEntity;
 import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.BellumTags;
 import net.enderboy500.bellum.util.event.BellumSoundEvents;
-import net.enderboy500.enderlib.ELib;
-import net.enderboy500.enderlib.events.CanEntityHealEvent;
-import net.enderboy500.enderlib.registry.ToolFuntionRegistry;
-import net.enderboy500.enderlib.util.ItemUtils;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.gamerules.GameRule;
-import net.minecraft.world.level.gamerules.GameRuleCategory;
-import net.minecraft.world.level.gamerules.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,11 +25,14 @@ public class Bellum implements ModInitializer {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
+	//TODO: Fix harvest function of Sickle
+	//TODO: Fix Anvils
+
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing Bellum");
 
-		ELib.addModId(MOD_ID);
+		Cipher.addModId(MOD_ID);
 
 		BellumItems.loadItems();
 		BellumSkins.loadAndRegister();
@@ -53,6 +43,7 @@ public class Bellum implements ModInitializer {
 
 		BellumEntities.loadEntities();
 		BellumMobEffects.loadMobEffects();
+		BellumDamageTypes.loadDamageTypes();
 
 		BellumParticleTypes.loadParticleTypes();
 
@@ -79,6 +70,8 @@ public class Bellum implements ModInitializer {
 					}
 				}
 			});
+
+
 
 		CanEntityHealEvent.EVENT.register(livingEntity -> {
 			return !livingEntity.hasEffect(BellumMobEffects.BLEEDING);

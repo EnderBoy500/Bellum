@@ -49,7 +49,7 @@ public class ThrownKunaiRenderer extends EntityRenderer<ThrownKunaiEntity, Throw
         thrownKunaiRenderState.isFoil = thrownKunai.isFoil();
         thrownKunaiRenderState.level = thrownKunai.level();
         thrownKunaiRenderState.blockPos = thrownKunai.blockPosition();
-        this.itemModelResolver.updateForNonLiving(thrownKunaiRenderState.itemStackRenderState, BellumItems.KUNAI.getDefaultInstance(), ItemDisplayContext.FIXED, thrownKunai);
+        this.itemModelResolver.updateForNonLiving(thrownKunaiRenderState.itemStackRenderState, thrownKunai.getEntityData().get(thrownKunai.ITEM), ItemDisplayContext.FIXED, thrownKunai);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package net.enderboy500.bellum.item;
 
+import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import net.enderboy500.bellum.Bellum;
-import net.enderboy500.enderlib.item.ToolFunction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -12,9 +12,9 @@ import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 
-public class ScytheItem extends Item implements ToolFunction {
+public class ScytheItem extends Item {
     public ScytheItem(ToolMaterial material, Properties properties) {
-        super(material.applyToolProperties(properties, BlockTags.MINEABLE_WITH_HOE, 3, -3, 0).attributes(ItemAttributeModifiers.builder()
+        super(material.applyToolProperties(properties.component(CipherLibComponents.CAN_TILL, true), BlockTags.MINEABLE_WITH_HOE, 3, -3, 0).attributes(ItemAttributeModifiers.builder()
                 .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(Bellum.id("extra_reach"), 1.25f, AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND).add(
                         Attributes.ATTACK_DAMAGE,
@@ -24,12 +24,4 @@ public class ScytheItem extends Item implements ToolFunction {
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, -3, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
     }
 
-    @Override
-    public InteractionResult useOn(UseOnContext useOnContext) {
-        if (canTill(useOnContext)) {
-            tillFuntion(useOnContext);
-            return InteractionResult.SUCCESS;
-        }
-        return super.useOn(useOnContext);
-    }
 }

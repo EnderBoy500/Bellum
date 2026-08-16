@@ -20,17 +20,33 @@
   "item.bellum.golden_dagger": "Golden Dagger",
   "item.bellum.diamond_dagger": "Diamond Dagger",
   "item.bellum.netherite_dagger": "Netherite Dagger",
-  "item.bellum.kunai": "Kunai",
+  "item.bellum.wooden_kunai": "Wooden Kunai",
+  "item.bellum.stone_kunai": "Stone Kunai",
+  "item.bellum.copper_kunai": "Copper Kunai",
+  "item.bellum.iron_kunai": "Iron Kunai",
+  "item.bellum.golden_kunai": "Golden Kunai",
+  "item.bellum.diamond_kunai": "Diamond Kunai",
+  "item.bellum.netherite_kunai": "Netherite Kunai",
   "item.bellum.tipped_kunai": "Tipped Kunai",
 
   "item.skin.bellum.ciphered_sickle": "Ciphered Sickle",
   "item.skin.bellum.soul_sickle": "Soul Sickle",
   "item.skin.bellum.divine_dagger": "Divine Dagger",
 
+  "effect.bellum.bleeding": "Bleeding",
+  "effect.bellum.stun": "Stun",
+
   "enchantment.bellum.reaping": "Reaping",
   "enchantment.bellum.reaping.desc": "Allows the player to reap and stun your targets",
+  "enchantment.bellum.attuning": "Attuning",
+  "enchantment.bellum.attuning.desc": "Allows riptide movement by draining your soul",
+
+  "tooltip.bellum.kunai.effect": "Effect(s): ",
 
   "sounds.bellum.soul_sweep_attack": "Soul Sweep Attack",
+
+  "death.attack.drained_soul": "%1$s irresponsibly drained their soul",
+  "death.attack.drained_soul.player": "%1$s irresponsibly drained their soul while irresponsibly escaping %2$s",
 
   "itemgroup.bellum": "Bellum"
 }

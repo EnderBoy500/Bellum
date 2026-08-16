@@ -1,21 +1,17 @@
 package net.enderboy500.bellum.recipe;
 
+import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.content.BellumItems;
-import net.enderboy500.bellum.content.BellumMobEffects;
 import net.enderboy500.bellum.content.BellumRecipes;
 import net.enderboy500.bellum.util.BellumDataComponents;
+import net.enderboy500.bellum.util.BellumTags;
 import net.enderboy500.bellum.util.component.KunaiEffectComponent;
-import net.enderboy500.enderlib.util.skin.ComponentSkin;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
@@ -38,7 +34,7 @@ public class KunaiTippingRecipe extends CustomRecipe {
         for (int i = 0; i < craftingInput.size(); ++i) {
             ItemStack itemStack = craftingInput.getItem(i);
             if (!itemStack.isEmpty()) {
-                if (itemStack.is(BellumItems.KUNAI)) {
+                if (itemStack.is(BellumTags.KUNAIS)) {
                     kunaiCount++;
                 } else {
                     if (hasModifier || !POTION.test(itemStack)) return false;
@@ -53,7 +49,7 @@ public class KunaiTippingRecipe extends CustomRecipe {
     }
 
     public ItemStack assemble(CraftingInput craftingInput, HolderLookup.Provider provider) {
-        ItemStack outputStack = BellumItems.KUNAI.getDefaultInstance();
+        ItemStack outputStack = BellumItems.IRON_KUNAI.getDefaultInstance();
 
         for (int i = 0; i < craftingInput.size(); ++i) {
             ItemStack stack = craftingInput.getItem(i);
@@ -70,10 +66,11 @@ public class KunaiTippingRecipe extends CustomRecipe {
                 if (POTION.test(stack)) {
                     List<MobEffectInstance> effectInstances = new ArrayList<>();
                     for (MobEffectInstance mobEffectInstance : stack.get(DataComponents.POTION_CONTENTS).getAllEffects()) {
-                        effectInstances.add(mobEffectInstance);
+                        effectInstances.add(new MobEffectInstance(mobEffectInstance.getEffect(), mobEffectInstance.getDuration() / 8, mobEffectInstance.getAmplifier()));
                     }
                     outputStack.set(BellumDataComponents.KUNAI_EFFECT, new KunaiEffectComponent(effectInstances));
                     outputStack.set(DataComponents.ITEM_NAME, Component.translatable("item.bellum.tipped_kunai"));
+
                     i = craftingInput.size();
                 }
             }
@@ -84,7 +81,8 @@ public class KunaiTippingRecipe extends CustomRecipe {
     }
 
     static {
-        KUNAI = Ingredient.of(BellumItems.KUNAI);
+        KUNAI = Ingredient.of(BellumItems.WOODEN_KUNAI, BellumItems.STONE_KUNAI, BellumItems.IRON_KUNAI,
+                BellumItems.COPPER_KUNAI, BellumItems.GOLDEN_KUNAI, BellumItems.DIAMOND_KUNAI, BellumItems.NETHERITE_KUNAI);
         POTION = Ingredient.of(Items.POTION);
     }
 

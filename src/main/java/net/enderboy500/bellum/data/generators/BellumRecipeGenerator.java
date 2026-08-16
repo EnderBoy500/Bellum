@@ -1,7 +1,7 @@
 package net.enderboy500.bellum.data.generators;
 
+import io.github.ciph3rj.cipherlib.helper.CipherLibRecipeGenerator;
 import net.enderboy500.bellum.content.BellumItems;
-import net.enderboy500.enderlib.helper.EnderlibRecipeGenerator;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BellumRecipeGenerator extends EnderlibRecipeGenerator {
+public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
     public BellumRecipeGenerator(HolderLookup.Provider registries, RecipeOutput exporter) {
         super(registries, exporter);
     }
@@ -50,9 +50,19 @@ public class BellumRecipeGenerator extends EnderlibRecipeGenerator {
         generateDagger(Items.GOLD_INGOT, BellumItems.GOLDEN_DAGGER);
         generateDagger(Items.DIAMOND,  BellumItems.DIAMOND_DAGGER);
 
-        this.shaped(RecipeCategory.COMBAT, BellumItems.KUNAI, 2).define('#', Items.IRON_INGOT).define('N', Items.IRON_NUGGET)
-                .define('/', Items.STICK).pattern("#").pattern("/").pattern("N")
-                .unlockedBy(getHasName(BellumItems.KUNAI), has(Items.IRON_INGOT)).save(output);
+        this.shaped(RecipeCategory.COMBAT, BellumItems.WOODEN_KUNAI, 2).define('#', ItemTags.PLANKS).define('/', Items.STICK)
+                .pattern("#").pattern("/").pattern("#")
+                .unlockedBy(getHasName(BellumItems.WOODEN_KUNAI), has(ItemTags.PLANKS)).save(output);
+        this.shaped(RecipeCategory.COMBAT, BellumItems.STONE_KUNAI, 2).define('#', ItemTags.STONE_CRAFTING_MATERIALS)
+                .define('/', Items.STICK).pattern("#").pattern("/").pattern("#")
+                .unlockedBy(getHasName(BellumItems.STONE_KUNAI), has(ItemTags.STONE_CRAFTING_MATERIALS)).save(output);
+        generateKunai(Items.COPPER_INGOT, BellumItems.COPPER_KUNAI);
+        generateKunai(Items.IRON_INGOT, BellumItems.IRON_KUNAI);
+        generateKunai(Items.GOLD_INGOT, BellumItems.GOLDEN_KUNAI);
+        generateKunai(Items.DIAMOND, BellumItems.DIAMOND_KUNAI);
+        this.shaped(RecipeCategory.COMBAT, BellumItems.NETHERITE_KUNAI, 8).define('#', BellumItems.DIAMOND_KUNAI)
+                .define('N', Items.NETHERITE_INGOT).pattern("###").pattern("#N#").pattern("###")
+                .unlockedBy(getHasName(BellumItems.NETHERITE_KUNAI), has(Items.NETHERITE_INGOT)).save(output);
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {
@@ -68,6 +78,11 @@ public class BellumRecipeGenerator extends EnderlibRecipeGenerator {
     public void generateScythe(ItemLike base, ItemLike hoe, Item outputItem) {
         this.shaped(RecipeCategory.COMBAT, outputItem).define('#', base).define('|', hoe).define('/', Items.STICK).pattern("## ").pattern(" |#").pattern("/  ")
                 .unlockedBy(getHasName(outputItem), has(base)).save(output);
+    }
+
+    public void generateKunai(ItemLike base, Item outputItem) {
+        this.shaped(RecipeCategory.COMBAT, outputItem, 2).define('#', base).define('/', Items.STICK).pattern("#")
+                .pattern("/").pattern("#").unlockedBy(getHasName(outputItem), has(base)).save(output);
     }
 
     public static class Provider extends RecipeProvider.Runner {

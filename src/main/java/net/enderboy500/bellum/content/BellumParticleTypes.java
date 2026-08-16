@@ -1,6 +1,6 @@
 package net.enderboy500.bellum.content;
 
-import net.enderboy500.enderlib.helper.RegistryHelper;
+import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 

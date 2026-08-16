@@ -2,7 +2,6 @@ package net.enderboy500.bellum.data.providers;
 
 import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.util.BellumTags;
-import net.enderboy500.enderlib.util.EnderlibTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -44,34 +43,45 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.DIAMOND_DAGGER)
                 .add(BellumItems.NETHERITE_DAGGER)
         ;
-
-        valueLookupBuilder(EnderlibTags.SKIN_INCOMPATIBILITY)
-                .add(BellumItems.KUNAI)
+        valueLookupBuilder(BellumTags.KUNAIS)
+                .add(BellumItems.WOODEN_KUNAI)
+                .add(BellumItems.STONE_KUNAI)
+                .add(BellumItems.COPPER_KUNAI)
+                .add(BellumItems.IRON_KUNAI)
+                .add(BellumItems.GOLDEN_KUNAI)
+                .add(BellumItems.DIAMOND_KUNAI)
+                .add(BellumItems.NETHERITE_KUNAI)
         ;
 
         valueLookupBuilder(ItemTags.SWEEPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(ItemTags.VANISHING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
+                .addTag(BellumTags.SCYTHES)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)

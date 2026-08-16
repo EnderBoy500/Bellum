@@ -3,10 +3,12 @@ package net.enderboy500.bellum.projectile;
 import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.component.KunaiEffectComponent;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Position;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -26,18 +28,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.ProjectileItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class KunaiItem extends Item implements ProjectileItem {
     public static final int THROW_THRESHOLD_TIME = 10;
@@ -103,6 +104,17 @@ public class KunaiItem extends Item implements ProjectileItem {
         ThrownKunaiEntity thrownKunai = new ThrownKunaiEntity(level, position.x(), position.y(), position.z(), itemStack.copyWithCount(1));
         thrownKunai.pickup = AbstractArrow.Pickup.ALLOWED;
         return thrownKunai;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+        if (itemStack.has(BellumDataComponents.KUNAI_EFFECT)) {
+            consumer.accept(Component.translatable("tooltip.bellum.kunai.effect"));
+            for (MobEffectInstance effectInstance : itemStack.get(BellumDataComponents.KUNAI_EFFECT).effects()) {
+                consumer.accept(Component.translatable(effectInstance.getEffect().value().getDescriptionId()).withStyle(ChatFormatting.GOLD));
+            }
+        }
+        super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
     }
 
     public static Item registerKunai(String id, float damage) {

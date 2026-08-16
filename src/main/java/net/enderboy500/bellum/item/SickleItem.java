@@ -1,9 +1,8 @@
 package net.enderboy500.bellum.item;
 
-import net.enderboy500.bellum.Bellum;
+import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
+import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.content.BellumMobEffects;
-import net.enderboy500.enderlib.item.ToolFunction;
-import net.enderboy500.enderlib.util.ItemUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -15,14 +14,14 @@ import net.minecraft.world.item.context.UseOnContext;
 
 import java.util.Random;
 
-public class SickleItem extends Item implements ToolFunction {
+public class SickleItem extends Item {
     public SickleItem(ToolMaterial material, float attackDamage, float attackSpeed, Properties properties) {
         super(material.applyToolProperties(properties, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, 0));
     }
 
     @Override
     public void hurtEnemy(ItemStack itemStack, LivingEntity livingEntity, LivingEntity livingEntity2) {
-        if (!ItemUtils.hasEnchantment(this.getDefaultInstance(), "reaping")) {
+        if (!ItemUtils.hasEnchantment(itemStack, "reaping")) {
             Random random = new Random();
             int effectChance = random.nextInt(8) + 1;
             if (effectChance == 4) {
@@ -32,12 +31,4 @@ public class SickleItem extends Item implements ToolFunction {
         super.hurtEnemy(itemStack, livingEntity, livingEntity2);
     }
 
-    @Override
-    public InteractionResult useOn(UseOnContext useOnContext) {
-        if (checkCrop(useOnContext)) {
-            harvestFunction(useOnContext);
-            return InteractionResult.SUCCESS;
-        }
-        return super.useOn(useOnContext);
-    }
 }

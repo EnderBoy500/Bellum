@@ -1,9 +1,8 @@
 package net.enderboy500.bellum.util;
 
 import com.mojang.serialization.Codec;
-import net.enderboy500.bellum.Bellum;
+import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import net.enderboy500.bellum.util.component.KunaiEffectComponent;
-import net.enderboy500.enderlib.helper.RegistryHelper;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
 

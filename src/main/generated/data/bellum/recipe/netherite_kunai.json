@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "bellum:diamond_kunai",
+    "N": "minecraft:netherite_ingot"
+  },
+  "pattern": [
+    "###",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "bellum:netherite_kunai"
+  }
+}

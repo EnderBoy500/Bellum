@@ -29,13 +29,13 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
 public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier {
     private final SimpleContainer INVENTORY = new SimpleContainer(1);
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(ThrownKunaiEntity.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<ItemStack> ITEM = SynchedEntityData.defineId(ThrownKunaiEntity.class, EntityDataSerializers.ITEM_STACK);
     private boolean dealtDamage = false;
 
     public ThrownKunaiEntity(EntityType<? extends AbstractArrow> entityType, Level level) {
@@ -56,6 +56,7 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(ID_FOIL, false);
+        builder.define(ITEM, ItemStack.EMPTY);
     }
 
     public boolean isFoil() {
@@ -64,6 +65,7 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
 
     @Override
     public void tick() {
+        if (entityData.get(ITEM).isEmpty() && !INVENTORY.getItem(0).isEmpty()) entityData.set(ITEM, INVENTORY.getItem(0).copy());
         if (this.inGroundTime > 4) {
             this.dealtDamage = true;
         }
@@ -121,7 +123,7 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
         this.setDeltaMovement(this.getDeltaMovement().multiply(0.02, 0.2, 0.02));
         this.playSound(SoundEvents.TRIDENT_HIT, 1.0F, 1.0F);
         if (itemStack.has(BellumDataComponents.KUNAI_EFFECT)) itemStack.remove(BellumDataComponents.KUNAI_EFFECT);
-        if (itemStack.getCustomName() == null) itemStack.set(DataComponents.ITEM_NAME, Component.translatable("item.bellum.kunai"));
+        if (itemStack.getCustomName() == null) itemStack.set(DataComponents.ITEM_NAME, itemStack.getItem().getDefaultInstance().getItemName());
         level().addFreshEntity(new ItemEntity(level(), blockPosition().getX(), blockPosition().getY(), blockPosition().getZ(), itemStack));
         discard();
     }
@@ -131,7 +133,7 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
         super.onHitBlock(blockHitResult);
         ItemStack itemStack = getInventory().getItem(0).copy();
         if (itemStack.has(BellumDataComponents.KUNAI_EFFECT)) itemStack.remove(BellumDataComponents.KUNAI_EFFECT);
-        if (itemStack.getCustomName() == null) itemStack.set(DataComponents.ITEM_NAME, BellumItems.KUNAI.getName());
+        if (itemStack.getCustomName() == null) itemStack.set(DataComponents.ITEM_NAME, itemStack.getItem().getDefaultInstance().getItemName());
         level().addFreshEntity(new ItemEntity(level(), blockPosition().getX(), blockPosition().getY(), blockPosition().getZ(), itemStack));
         discard();
     }
@@ -143,10 +145,6 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
 
     @Override
     public void playerTouch(Player player) {
-        if (this.ownedBy(player) || this.getOwner() == null) {
-            super.playerTouch(player);
-        }
-
     }
 
     @Override
@@ -175,7 +173,7 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
 
     @Override
     public @Nullable ItemStack getWeaponItem() {
-        return BellumItems.KUNAI.getDefaultInstance();
+        return BellumItems.IRON_KUNAI.getDefaultInstance();
     }
 
     @Override

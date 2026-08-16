@@ -1,7 +1,7 @@
 package net.enderboy500.bellum.content;
 
+import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import net.enderboy500.bellum.recipe.KunaiTippingRecipe;
-import net.enderboy500.enderlib.helper.RegistryHelper;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
