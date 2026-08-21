@@ -41,7 +41,7 @@ public abstract class TridentItemMixin {
                 Holder<SoundEvent> holder = (Holder)EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
                 if (hasAttuning && (player.getHealth() > 0 || player.experienceLevel > 0)) {
                     if (player.experienceLevel > 0) player.experienceLevel = player.experienceLevel - 1;
-                    else player.hurt(level.damageSources.source(BellumDamageTypes.DRAINED_SOUL), 1.5f);
+                    else player.hurt(level.damageSources().source(BellumDamageTypes.DRAINED_SOUL), 1.5f);
                     int f = 2;
                     float g = player.getYRot();
                     float h = player.getXRot();

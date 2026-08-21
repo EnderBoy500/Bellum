@@ -2,7 +2,9 @@ package net.enderboy500.bellum;
 
 import io.github.ciph3rj.cipherlib.Cipher;
 import io.github.ciph3rj.cipherlib.events.CanEntityHealEvent;
+import io.github.ciph3rj.cipherlib.helper.LootTableModificationHelper;
 import io.github.ciph3rj.cipherlib.util.ItemUtils;
+import io.github.ciph3rj.cipherlib.util.interfaces.VanillaChestLootTableList;
 import net.enderboy500.bellum.content.*;
 import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.BellumTags;
@@ -58,6 +60,8 @@ public class Bellum implements ModInitializer {
 		///////////
 
 		//FabricDefaultAttributeRegistry.register(BellumEntities.TRAINING_DUMMY, TrainingDummyEntity.createAttributes());
+
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.BASTION_TREASURE, BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, 1, 0, 1);
 
 		///////////
 			DefaultItemComponentEvents.MODIFY.register(modifyContext -> {

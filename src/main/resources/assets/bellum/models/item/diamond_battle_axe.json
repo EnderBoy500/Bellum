@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "bellum:item/battle_axe",
   "textures": {
     "layer0": "bellum:item/diamond_battle_axe"
   }

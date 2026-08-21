@@ -16,10 +16,11 @@ public class BellumSkins {
     public static final ItemSkin MOTION_ICON_2D = new ItemSkin("motion_icon_2d", Bellum.id("motion_icon_2d"));
 
     public static final ItemSkin DIVINE_SCYTHE = new ItemSkin("divine_scythe", Bellum.id("divine_scythe"));
+    public static final ItemSkin DIVINE_BATTLE_AXE = new ItemSkin("divine_battle_axe", Bellum.id("divine_battle_axe"));
 
     public static void loadAndRegister() {
         ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_SICKLE, BellumItems.NETHERITE_SICKLE), List.of(CIPHERED_SICKLE, SOUL_SICKLE));
         ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_DAGGER, BellumItems.NETHERITE_DAGGER), List.of(DIVINE_DAGGER, MOTION_ICON, MOTION_ICON_2D));
-        ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_SCYTHE, BellumItems.NETHERITE_SCYTHE), List.of(DIVINE_SCYTHE));
+        ItemSkinRegistry.registerSkin(List.of(BellumItems.DIAMOND_SCYTHE, BellumItems.NETHERITE_SCYTHE), DIVINE_SCYTHE);
     }
 }

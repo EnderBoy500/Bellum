@@ -7,9 +7,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
@@ -74,7 +76,9 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
                 .unlockedBy(getHasName(BellumItems.WOODEN_BATTLE_AXE), has(ItemTags.PLANKS)).save(output);
         this.shaped(RecipeCategory.COMBAT, BellumItems.STONE_BATTLE_AXE).define('#', ItemTags.STONE_CRAFTING_MATERIALS).define('/', Items.STICK).pattern("###").pattern("#/#").pattern(" / ")
                 .unlockedBy(getHasName(BellumItems.STONE_BATTLE_AXE), has(ItemTags.STONE_CRAFTING_MATERIALS)).save(output);
+        copySmithingTemplate(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
 
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Items.TRIDENT), tag(ItemTags.NETHERITE_TOOL_MATERIALS), RecipeCategory.COMBAT, BellumItems.HELLFORK).unlocks("has_netherite_ingot", this.has(ItemTags.NETHERITE_TOOL_MATERIALS)).save(this.output, getItemName(BellumItems.HELLFORK) + "_smithing");
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {

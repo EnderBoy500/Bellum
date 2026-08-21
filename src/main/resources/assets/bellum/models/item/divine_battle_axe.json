@@ -1,0 +1,6 @@
+{
+  "parent": "bellum:item/battle_axe",
+  "textures": {
+    "layer0": "bellum:item/divine_battle_axe"
+  }
+}

@@ -64,6 +64,9 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.NETHERITE_BATTLE_AXE)
         ;
 
+        valueLookupBuilder(ItemTags.TRIDENT_ENCHANTABLE)
+                .add(BellumItems.HELLFORK);
+
         valueLookupBuilder(ItemTags.SWEEPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)

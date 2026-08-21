@@ -3,8 +3,10 @@ package net.enderboy500.bellum.item;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.content.BellumMobEffects;
+import net.enderboy500.bellum.util.BellumTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -51,4 +53,32 @@ public class SickleItem extends Item {
         }
         return InteractionResult.FAIL;
     }
+
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity livingEntity, InteractionHand hand) {
+        if (hand == InteractionHand.MAIN_HAND) return InteractionResult.PASS;
+        if (!player.getItemInHand(InteractionHand.MAIN_HAND).is(BellumTags.SICKLES))  return InteractionResult.PASS;
+        if (player.getAttackStrengthScale(0)<0.5) return InteractionResult.PASS;
+        if (player.getCooldowns().getCooldownPercent(player.getItemInHand(hand), 0)>0) return InteractionResult.PASS;
+        player.getCooldowns().addCooldown(itemStack, 12);
+        if (player.attackStrengthTicker>5) player.attackStrengthTicker = 5;
+        if (player.level().isClientSide()) return InteractionResult.SUCCESS;
+
+        int tt = player.attackStrengthTicker;
+        swapHands(player);
+        player.detectEquipmentUpdates();
+
+        player.attackStrengthTicker = 1000;
+        player.attack(livingEntity);
+        swapHands(player);
+        player.attackStrengthTicker = tt;
+        return InteractionResult.SUCCESS;
+    }
+
+    private static void swapHands(Player user) {
+        ItemStack itemStack = user.getItemInHand(InteractionHand.OFF_HAND);
+        user.setItemInHand(InteractionHand.OFF_HAND, user.getItemInHand(InteractionHand.MAIN_HAND));
+        user.setItemInHand(InteractionHand.MAIN_HAND, itemStack);
+    }
+
 }

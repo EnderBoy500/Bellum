@@ -11,6 +11,7 @@ public class BellumEntityModelLayers {
     private static final String MAIN = "main";
     private static final Set<ModelLayerLocation> LAYERS = Sets.newHashSet();
     public static final ModelLayerLocation TRAINING_DUMMY = registerMain("training_dummy");
+    public static final ModelLayerLocation HELLFORK = registerMain("hellfork");
 
     private static ModelLayerLocation registerMain(String id) {
         return register(id, "main");

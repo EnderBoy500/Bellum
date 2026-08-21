@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KunaiTippingRecipe extends CustomRecipe {
-    private static final Ingredient KUNAI;
     private static final Ingredient POTION;
 
     public KunaiTippingRecipe(CraftingBookCategory category) {
@@ -81,8 +80,6 @@ public class KunaiTippingRecipe extends CustomRecipe {
     }
 
     static {
-        KUNAI = Ingredient.of(BellumItems.WOODEN_KUNAI, BellumItems.STONE_KUNAI, BellumItems.IRON_KUNAI,
-                BellumItems.COPPER_KUNAI, BellumItems.GOLDEN_KUNAI, BellumItems.DIAMOND_KUNAI, BellumItems.NETHERITE_KUNAI);
         POTION = Ingredient.of(Items.POTION);
     }
 

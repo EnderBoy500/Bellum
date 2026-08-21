@@ -13,8 +13,7 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 
 public class BattleAxeItem extends AxeItem {
 
-
     public BattleAxeItem(ToolMaterial toolMaterial, float f, float g, Properties properties) {
-        super(toolMaterial, f, g, properties.component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+        super(toolMaterial, f, g, properties.component(CipherLibComponents.HAS_SWEEP_ATTACK, true).component(CipherLibComponents.HOLD_WITH_BOTH_HANDS, true));
     }
 }

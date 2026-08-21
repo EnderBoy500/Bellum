@@ -35,6 +35,10 @@
   "item.bellum.golden_battle_axe": "Golden Battle Axe",
   "item.bellum.diamond_battle_axe": "Diamond Battle Axe",
   "item.bellum.netherite_battle_axe": "Netherite Battle Axe",
+  "item.bellum.hellfork": "Hellfork",
+  "item.bellum.hellfork_upgrade_smithing_template": "Hellfork Upgrade Smithing Template",
+  "item.bellum.smithing_template.hellfork_upgrade.applies_to": "Trident",
+  "item.bellum.smithing_template.hellfork_upgrade.base_slot_description": "Add a trident",
 
 
   "item.skin.bellum.ciphered_sickle": "Ciphered Sickle",

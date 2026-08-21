@@ -30,6 +30,7 @@ b56514326e435dfbab2887ff2afd3d832cb570fd data/bellum/advancement/recipes/combat/
 fee684126ca7cb570ec3ec9fc540f5761406093d data/bellum/advancement/recipes/combat/wooden_kunai.json
 8d68c9d951dfaad5e58c49e22d9af3d7101ce183 data/bellum/advancement/recipes/combat/wooden_scythe.json
 d2355c48069326b89f2d4e2c8a64ccd84d5a5d72 data/bellum/advancement/recipes/combat/wooden_sickle.json
+2deeac4f1552a0315a130ea62dcf67a6fc00ca48 data/bellum/advancement/recipes/misc/hellfork_upgrade_smithing_template.json
 abbd3ac87187f7d1e476d4ff89add7399c06284a data/bellum/recipe/copper_battle_axe.json
 f84fb50095ae1c8074d3bac0c63ce05cc27bad55 data/bellum/recipe/copper_dagger.json
 fd0e81079870ea9feafbce58e9885c7dd4bf7a6a data/bellum/recipe/copper_kunai.json
@@ -45,6 +46,7 @@ d9f07063011f0d33a4eef2bb0cba57f5eaf0b061 data/bellum/recipe/golden_dagger.json
 a849061bb494929238c8520fb6c6b5126c2b23a4 data/bellum/recipe/golden_kunai.json
 1fa993cc27ad613bd4b3474e44ee6881b92a9446 data/bellum/recipe/golden_scythe.json
 8375f0779b6e624054a8c26188f7eaec00b48f36 data/bellum/recipe/golden_sickle.json
+19d1d3808c5be143b9f9a36cddd8a55810447605 data/bellum/recipe/hellfork_upgrade_smithing_template.json
 5acd91f0cfde1b58236d7418fc9d99f372b95d46 data/bellum/recipe/iron_battle_axe.json
 d14d8ba6b9fd89503d6e7fc7cff6cf1f4bb1d1f4 data/bellum/recipe/iron_dagger.json
 3d28ccecf0d05740abf8ee6da9c565276373f1b4 data/bellum/recipe/iron_kunai.json
@@ -61,3 +63,5 @@ b83e62e27019de206a208683bbd9b4c4143fa3e2 data/bellum/recipe/wooden_dagger.json
 1a1e9852addaca7017b3e8a87d2d6608a916870e data/bellum/recipe/wooden_kunai.json
 01d0c669cd22bb8fe07de199d92be22aee92735e data/bellum/recipe/wooden_scythe.json
 b430daa39a35c5f999fe6520c8f0d991a1d336d2 data/bellum/recipe/wooden_sickle.json
+7c016a782744bb3c02f600af1bf226af430ab896 data/minecraft/advancement/recipes/combat/hellfork_smithing.json
+72d3b63edef981dd3e4d5e1a28e1a301bbb1e043 data/minecraft/recipe/hellfork_smithing.json
