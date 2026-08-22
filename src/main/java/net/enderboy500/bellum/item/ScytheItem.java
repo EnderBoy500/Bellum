@@ -3,14 +3,12 @@ package net.enderboy500.bellum.item;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import net.enderboy500.bellum.Bellum;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.context.UseOnContext;
 
 public class ScytheItem extends Item {
     public ScytheItem(ToolMaterial material, Properties properties) {

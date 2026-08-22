@@ -27,8 +27,7 @@ public class Bellum implements ModInitializer {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
-	//TODO: Fix harvest function of Sickle
-	//TODO: Fix Anvils
+	//TODO: Fix skins for battleaxes and sickles
 
 	@Override
 	public void onInitialize() {
@@ -55,25 +54,23 @@ public class Bellum implements ModInitializer {
 		BellumTags.loadTags();
 		BellumDataComponents.loadDataComponents();
 
-
-
 		///////////
 
-		//FabricDefaultAttributeRegistry.register(BellumEntities.TRAINING_DUMMY, TrainingDummyEntity.createAttributes());
 
 		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.BASTION_TREASURE, BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, 1, 0, 1);
 
 		///////////
-			DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
-				for (Item item : ItemUtils.getAll(BuiltInRegistries.ITEM)) {
-					if ((item instanceof BucketItem || item instanceof PotionItem || item.getDefaultInstance().is(Items.POWDER_SNOW_BUCKET) || item.getDefaultInstance().is(Items.MILK_BUCKET) || item.getDefaultInstance().is(Items.ENCHANTED_BOOK))) {
-						modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 16));
-					}
-					if ((item instanceof EnderpearlItem || item instanceof SnowballItem || item instanceof EggItem)) {
-						modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 64));
-					}
+
+		DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
+			for (Item item : ItemUtils.getAll(BuiltInRegistries.ITEM)) {
+				if ((item instanceof BucketItem || item instanceof PotionItem || item.getDefaultInstance().is(Items.POWDER_SNOW_BUCKET) || item.getDefaultInstance().is(Items.MILK_BUCKET) || item.getDefaultInstance().is(Items.ENCHANTED_BOOK))) {
+					modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 16));
 				}
-			});
+				if ((item instanceof EnderpearlItem || item instanceof SnowballItem || item instanceof EggItem)) {
+					modifyContext.modify(item, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 64));
+				}
+			}
+		});
 
 
 

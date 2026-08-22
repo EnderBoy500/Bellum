@@ -15,8 +15,6 @@ import net.minecraft.client.particle.AttackSweepParticle;
 public class BellumClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-/*        EntityRendererRegistry.register(BellumEntities.TRAINING_DUMMY, TrainingDummyRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(BellumEntityModelLayers.TRAINING_DUMMY, TrainingDummy::getTexturedModelData);*/
         EntityRendererRegistry.register(BellumEntities.THROWN_KUNAI, ThrownKunaiRenderer::new);
         EntityRendererRegistry.register(BellumEntities.HELLFORK_ENTITY, HellforkRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(BellumEntityModelLayers.HELLFORK, HellforkModel::createLayer);

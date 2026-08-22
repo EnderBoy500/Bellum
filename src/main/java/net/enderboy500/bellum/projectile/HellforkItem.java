@@ -15,7 +15,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
@@ -24,7 +23,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
-import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
@@ -39,10 +37,6 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 
 public class HellforkItem extends Item implements ProjectileItem {
-    public static final int THROW_THRESHOLD_TIME = 10;
-    public static final float BASE_DAMAGE = 8.0F;
-    public static final float PROJECTILE_SHOOT_POWER = 2.5F;
-
     public HellforkItem(Item.Properties properties) {
         super(properties.fireResistant().component(CipherLibComponents.CUSTOM_RIPTIDE_TEXTURE, Bellum.id("textures/entity/hellfork_riptide.png")));
     }
@@ -68,27 +62,26 @@ public class HellforkItem extends Item implements ProjectileItem {
             int j = this.getUseDuration(itemStack, livingEntity) - i;
             boolean hasAttuning = ItemUtils.hasEnchantment(itemStack, "attuning");
             if (j >= 10) {
-                Holder<SoundEvent> holder = (Holder)EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
+                Holder<SoundEvent> holder = EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
                 if (hasAttuning && (player.getHealth() > 0 || player.experienceLevel > 0)) {
                     if (player.experienceLevel > 0) player.experienceLevel = player.experienceLevel - 1;
                     else player.hurt(level.damageSources().source(BellumDamageTypes.DRAINED_SOUL), 1.5f);
                     int f = 2;
                     float g = player.getYRot();
                     float h = player.getXRot();
-                    float k = -Mth.sin((double) (g * ((float) Math.PI / 180F))) * Mth.cos((double) (h * ((float) Math.PI / 180F)));
-                    float l = -Mth.sin((double) (h * ((float) Math.PI / 180F)));
-                    float m = Mth.cos((double) (g * ((float) Math.PI / 180F))) * Mth.cos((double) (h * ((float) Math.PI / 180F)));
+                    float k = -Mth.sin((g * ((float) Math.PI / 180F))) * Mth.cos((h * ((float) Math.PI / 180F)));
+                    float l = -Mth.sin((h * ((float) Math.PI / 180F)));
+                    float m = Mth.cos((g * ((float) Math.PI / 180F))) * Mth.cos((h * ((float) Math.PI / 180F)));
                     float n = Mth.sqrt(k * k + l * l + m * m);
                     k *= f / n;
                     l *= f / n;
                     m *= f / n;
-                    player.push((double) k, (double) l, (double) m);
+                    player.push(k, l, m);
                     player.startAutoSpinAttack(20, 8.0F, itemStack);
                     if (player.onGround()) {
-                        float o = 1.1999999F;
-                        player.move(MoverType.SELF, new Vec3((double) 0.0F, (double) 1.1999999F, (double) 0.0F));
+                        player.move(MoverType.SELF, new Vec3(0.0F, 1.1999999F, 0.0F));
                     }
-                    level.playSound((Entity) null, player, (SoundEvent) holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                    level.playSound(null, player, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                     return true;
                 }
             }
@@ -101,19 +94,19 @@ public class HellforkItem extends Item implements ProjectileItem {
                 } else if (itemStack.nextDamageWillBreak()) {
                     return false;
                 } else {
-                    Holder<SoundEvent> holder = (Holder)EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
+                    Holder<SoundEvent> holder = EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
                     player.awardStat(Stats.ITEM_USED.get(this));
                     if (level instanceof ServerLevel) {
                         ServerLevel serverLevel = (ServerLevel)level;
                         itemStack.hurtWithoutBreaking(1, player);
                         if (f == 0.0F) {
                             ItemStack itemStack2 = itemStack.consumeAndReturn(1, player);
-                            ThrownHellfork thrownTrident = (ThrownHellfork) Projectile.spawnProjectileFromRotation(ThrownHellfork::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
+                            ThrownHellfork thrownTrident = Projectile.spawnProjectileFromRotation(ThrownHellfork::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
                             if (player.hasInfiniteMaterials()) {
                                 thrownTrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                             }
 
-                            level.playSound((Entity)null, thrownTrident, (SoundEvent)holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                            level.playSound(null, thrownTrident, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                             return true;
                         }
                     }
@@ -121,21 +114,20 @@ public class HellforkItem extends Item implements ProjectileItem {
                     if (f > 0.0F) {
                         float g = player.getYRot();
                         float h = player.getXRot();
-                        float k = -Mth.sin((double)(g * ((float)Math.PI / 180F))) * Mth.cos((double)(h * ((float)Math.PI / 180F)));
-                        float l = -Mth.sin((double)(h * ((float)Math.PI / 180F)));
-                        float m = Mth.cos((double)(g * ((float)Math.PI / 180F))) * Mth.cos((double)(h * ((float)Math.PI / 180F)));
+                        float k = -Mth.sin((g * ((float)Math.PI / 180F))) * Mth.cos((double)(h * ((float)Math.PI / 180F)));
+                        float l = -Mth.sin((h * ((float)Math.PI / 180F)));
+                        float m = Mth.cos((g * ((float)Math.PI / 180F))) * Mth.cos((double)(h * ((float)Math.PI / 180F)));
                         float n = Mth.sqrt(k * k + l * l + m * m);
                         k *= f / n;
                         l *= f / n;
                         m *= f / n;
-                        player.push((double)k, (double)l, (double)m);
+                        player.push(k, l, m);
                         player.startAutoSpinAttack(20, 8.0F, itemStack);
                         if (player.onGround()) {
-                            float o = 1.1999999F;
-                            player.move(MoverType.SELF, new Vec3((double)0.0F, (double)1.1999999F, (double)0.0F));
+                            player.move(MoverType.SELF, new Vec3(0.0F, 1.1999999F, 0.0F));
                         }
 
-                        level.playSound((Entity)null, player, (SoundEvent)holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                        level.playSound(null, player, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                         return true;
                     } else {
                         return false;

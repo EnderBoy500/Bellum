@@ -3,14 +3,12 @@ package net.enderboy500.bellum.client.entity;
 import com.google.common.collect.Sets;
 import net.enderboy500.bellum.Bellum;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.entity.ArmorModelSet;
 
 import java.util.Set;
 
 public class BellumEntityModelLayers {
     private static final String MAIN = "main";
     private static final Set<ModelLayerLocation> LAYERS = Sets.newHashSet();
-    public static final ModelLayerLocation TRAINING_DUMMY = registerMain("training_dummy");
     public static final ModelLayerLocation HELLFORK = registerMain("hellfork");
 
     private static ModelLayerLocation registerMain(String id) {

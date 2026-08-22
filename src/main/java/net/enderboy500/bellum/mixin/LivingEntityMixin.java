@@ -11,15 +11,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,19 +28,7 @@ import java.util.Random;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-    @Shadow
-    @Nullable public abstract ItemEntity drop(ItemStack stack, boolean dropAtSelf, boolean retainOwnership);
-
-    @Shadow public abstract boolean isHolding(Item item);
-
-    @Shadow @Nullable
-    public abstract LivingEntity getLastHurtByMob();
-
-    @Shadow @Nullable public abstract LivingEntity getLastHurtMob();
-
     @Shadow public abstract LivingEntity getLastAttacker();
-
-    @Shadow public abstract ItemStack getMainHandItem();
 
     @Shadow
     public abstract @org.jspecify.annotations.Nullable ItemStack getItemBlockingWith();

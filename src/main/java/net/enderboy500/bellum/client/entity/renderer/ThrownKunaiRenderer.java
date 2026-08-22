@@ -3,24 +3,16 @@ package net.enderboy500.bellum.client.entity.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.enderboy500.bellum.client.entity.state.ThrownKunaiRenderState;
-import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.projectile.ThrownKunaiEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 
 @Environment(EnvType.CLIENT)
 public class ThrownKunaiRenderer extends EntityRenderer<ThrownKunaiEntity, ThrownKunaiRenderState> {
@@ -55,11 +47,5 @@ public class ThrownKunaiRenderer extends EntityRenderer<ThrownKunaiEntity, Throw
     @Override
     public ThrownKunaiRenderState createRenderState() {
         return new ThrownKunaiRenderState();
-    }
-
-    public int getLightLevel(Level world, BlockPos pos) {
-        int blockLight = world.getBrightness(LightLayer.BLOCK, pos);
-        int skyLight = world.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(blockLight, skyLight);
     }
 }

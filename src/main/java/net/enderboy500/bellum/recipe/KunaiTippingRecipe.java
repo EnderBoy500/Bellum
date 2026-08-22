@@ -1,6 +1,5 @@
 package net.enderboy500.bellum.recipe;
 
-import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.content.BellumRecipes;
 import net.enderboy500.bellum.util.BellumDataComponents;

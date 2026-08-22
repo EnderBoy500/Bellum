@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(AnvilMenu.class)
 public abstract class AnvilMenuMixin extends ItemCombinerMenu {
-
     @Shadow
     private int repairItemCountCost;
 
@@ -36,8 +35,8 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
     }
 
     /**
-     * @author
-     * @reason
+     * @author Enderboy500
+     * @reason Fixing Enchanting Book Implementation
      */
     @Overwrite
     public void onTake(Player player, ItemStack itemStack) {

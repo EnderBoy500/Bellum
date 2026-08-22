@@ -18,9 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
-import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
@@ -36,8 +34,6 @@ import java.util.List;
 public class ThrownHellfork extends AbstractArrow {
     private static final EntityDataAccessor<Byte> ID_LOYALTY;
     private static final EntityDataAccessor<Boolean> ID_FOIL;
-    private static final float WATER_INERTIA = 0.99F;
-    private static final boolean DEFAULT_DEALT_DAMAGE = false;
     private boolean dealtDamage = false;
     public int clientSideReturnTridentTickCount;
 
@@ -69,7 +65,7 @@ public class ThrownHellfork extends AbstractArrow {
         }
 
         Entity entity = this.getOwner();
-        int i = (Byte) this.entityData.get(ID_LOYALTY);
+        int i = this.entityData.get(ID_LOYALTY);
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
                 Level var4 = this.level();
@@ -113,7 +109,7 @@ public class ThrownHellfork extends AbstractArrow {
     }
 
     public boolean isFoil() {
-        return (Boolean) this.entityData.get(ID_FOIL);
+        return this.entityData.get(ID_FOIL);
     }
 
     protected @Nullable EntityHitResult findHitEntity(Vec3 vec3, Vec3 vec32) {
@@ -217,7 +213,7 @@ public class ThrownHellfork extends AbstractArrow {
     }
 
     public void tickDespawn() {
-        int i = (Byte) this.entityData.get(ID_LOYALTY);
+        int i = this.entityData.get(ID_LOYALTY);
         if (this.pickup != Pickup.ALLOWED || i <= 0) {
             super.tickDespawn();
         }

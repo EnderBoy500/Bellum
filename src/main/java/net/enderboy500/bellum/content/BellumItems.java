@@ -73,8 +73,6 @@ public class BellumItems {
 
     public static final Item HELLFORK_UPGRADE_SMITHING_TEMPLATE = register("hellfork_upgrade_smithing_template", SmithingTemplateUtil::createHellforkUpgradeTemplate, (new Item.Properties()).rarity(Rarity.RARE).fireResistant());
 
-//    public static final Item TRAINING_DUMMY = register("training_dummy", TrainingDummyItem::new, new Item.Properties());
-
     public static Item register(String id, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         return RegistryHelper.registerItem(id, itemFactory, settings);
     }

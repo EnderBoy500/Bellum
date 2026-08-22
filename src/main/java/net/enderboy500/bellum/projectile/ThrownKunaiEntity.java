@@ -4,7 +4,6 @@ import net.enderboy500.bellum.content.BellumEntities;
 import net.enderboy500.bellum.content.BellumItems;
 import net.enderboy500.bellum.util.BellumDataComponents;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -105,12 +104,6 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
             if (entity.getType() == EntityType.ENDERMAN) {
                 return;
             }
-
-/*            var7 = this.level();
-            if (var7 instanceof ServerLevel) {
-                ServerLevel serverLevel = (ServerLevel)var7;
-                EnchantmentHelper.doPostAttackEffectsWithItemSourceOnBreak(serverLevel, entity, damageSource, this.getWeaponItem(), (item) -> this.kill(serverLevel));
-            }*/
 
             if (entity instanceof LivingEntity) {
                 LivingEntity livingEntity = (LivingEntity)entity;

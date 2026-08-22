@@ -6,8 +6,6 @@ import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.client.entity.BellumEntityModelLayers;
 import net.enderboy500.bellum.client.entity.model.HellforkModel;
 import net.enderboy500.bellum.projectile.ThrownHellfork;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.object.projectile.TridentModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

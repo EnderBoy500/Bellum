@@ -1,6 +1,5 @@
 package net.enderboy500.bellum.item;
 
-import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.content.BellumMobEffects;
 import net.enderboy500.bellum.util.BellumTags;
@@ -80,5 +79,4 @@ public class SickleItem extends Item {
         user.setItemInHand(InteractionHand.OFF_HAND, user.getItemInHand(InteractionHand.MAIN_HAND));
         user.setItemInHand(InteractionHand.MAIN_HAND, itemStack);
     }
-
 }
