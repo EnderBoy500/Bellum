@@ -101,12 +101,12 @@ public class HellforkItem extends Item implements ProjectileItem {
                         itemStack.hurtWithoutBreaking(1, player);
                         if (f == 0.0F) {
                             ItemStack itemStack2 = itemStack.consumeAndReturn(1, player);
-                            ThrownHellfork thrownTrident = Projectile.spawnProjectileFromRotation(ThrownHellfork::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
+                            ThrownHellfork thrownHellfork = Projectile.spawnProjectileFromRotation(ThrownHellfork::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
                             if (player.hasInfiniteMaterials()) {
-                                thrownTrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                                thrownHellfork.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                             }
 
-                            level.playSound(null, thrownTrident, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                            level.playSound(null, thrownHellfork, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                             return true;
                         }
                     }
@@ -158,8 +158,8 @@ public class HellforkItem extends Item implements ProjectileItem {
     }
 
     public Projectile asProjectile(Level level, Position position, ItemStack itemStack, Direction direction) {
-        ThrownHellfork thrownTrident = new ThrownHellfork(level, position.x(), position.y(), position.z(), itemStack.copyWithCount(1));
-        thrownTrident.pickup = AbstractArrow.Pickup.ALLOWED;
-        return thrownTrident;
+        ThrownHellfork thrownHellfork = new ThrownHellfork(level, position.x(), position.y(), position.z(), itemStack.copyWithCount(1));
+        thrownHellfork.pickup = AbstractArrow.Pickup.ALLOWED;
+        return thrownHellfork;
     }
 }

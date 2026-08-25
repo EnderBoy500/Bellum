@@ -1,0 +1,9 @@
+{
+  "scale": [1.5, 1.5, 1.5],
+  "position": [0.0, 0.6, 0.01],
+  "rotation": [0.0, 0.0, 180.0],
+  "body_part": "",
+  "backslot_model": "",
+  "backslot_model_armored": "",
+  "relocate_with_chestplate": true
+}

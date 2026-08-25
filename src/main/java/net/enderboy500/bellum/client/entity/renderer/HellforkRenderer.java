@@ -4,8 +4,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.client.entity.BellumEntityModelLayers;
-import net.enderboy500.bellum.client.entity.model.HellforkModel;
 import net.enderboy500.bellum.projectile.ThrownHellfork;
+import net.minecraft.client.model.object.projectile.TridentModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -23,11 +23,11 @@ import java.util.List;
 
 public class HellforkRenderer extends EntityRenderer<ThrownHellfork, ThrownTridentRenderState> {
     public static final Identifier TRIDENT_LOCATION = Bellum.id("textures/entity/hellfork.png");
-    private final HellforkModel model;
+    private final TridentModel model;
 
     public HellforkRenderer(EntityRendererProvider.Context context) {
         super(context);
-        this.model = new HellforkModel(context.bakeLayer(BellumEntityModelLayers.HELLFORK));
+        this.model = new TridentModel(context.bakeLayer(BellumEntityModelLayers.HELLFORK));
     }
 
     public void submit(ThrownTridentRenderState thrownTridentRenderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {

@@ -27,7 +27,27 @@ public class Bellum implements ModInitializer {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
-	//TODO: Fix skins for battleaxes and sickles
+	public static final Identifier HELLFORK_TEXTURE = id("textures/entity/hellfork.png");
+	public static final Identifier PITCHFORK_TEXTURE = id("textures/entity/pitchfork.png");
+	public static final Identifier DEFAULT_ANCHOR_CHAIN = id("textures/entity/anchor_chain/default_chain.png");
+	public static final Identifier SOUL_ANCHOR_CHAIN = id("textures/entity/anchor_chain/soul_chain.png");
+
+
+	//TODO: Fix skins for battleaxes
+
+	///Change Log 1.3.0:
+	/// Changed how sickles work
+	/// Lowered the damage and attack speed of sickles
+	/// new look to the battle axe
+	/// Added hellfork
+	/// Added Pitchfork
+	/// Drowned now are affected by Impaling
+	/// Add the ability to use fire charge
+	/// Add reaping to scythes and anchor
+	/// added reeling and shockwave enchantment
+	///	Moved the entity enchantment drops to a tag based system
+	///	Decreased shield reflection ro 45% instead of 50%
+	/// New Tags & Particles
 
 	@Override
 	public void onInitialize() {
@@ -58,6 +78,7 @@ public class Bellum implements ModInitializer {
 
 
 		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.BASTION_TREASURE, BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, 1, 0, 1);
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.UNDERWATER_RUIN_BIG, BellumItems.ANCHOR, 1, 0, 1);
 
 		///////////
 
@@ -73,11 +94,11 @@ public class Bellum implements ModInitializer {
 		});
 
 
-
 		CanEntityHealEvent.EVENT.register(livingEntity -> {
 			return !livingEntity.hasEffect(BellumMobEffects.BLEEDING);
 		});
 
 		LOGGER.info("Finished Initializing Bellum");
 	}
+
 }

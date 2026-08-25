@@ -10,7 +10,8 @@
 		"PlayerMixin",
 		"TridentItemMixin",
 		"LivingEntityMixin",
-		"ModelRenderingMixin"
+		"ModelRenderingMixin",
+		"FireChargeItemMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

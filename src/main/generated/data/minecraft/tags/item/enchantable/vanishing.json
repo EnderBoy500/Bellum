@@ -3,6 +3,7 @@
     "#bellum:sickles",
     "#bellum:daggers",
     "#bellum:scythes",
-    "#bellum:battle_axes"
+    "#bellum:battle_axes",
+    "bellum:anchor"
   ]
 }

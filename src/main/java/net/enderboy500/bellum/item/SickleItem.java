@@ -39,6 +39,10 @@ public class SickleItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
+        if (super.useOn(context).consumesAction()) {
+            super.useOn(context);
+            return InteractionResult.SUCCESS;
+        }
         Level world = context.getLevel();
         BlockPos pos = context.getClickedPos();
         BlockState state = world.getBlockState(pos);
@@ -50,7 +54,7 @@ public class SickleItem extends Item {
             stack.hurtWithoutBreaking(1, player);
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.FAIL;
+        return InteractionResult.PASS;
     }
 
     @Override

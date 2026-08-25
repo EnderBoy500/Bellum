@@ -20,6 +20,7 @@ cb432b01339b118fc6511122e46610529b8ca431 data/bellum/advancement/recipes/combat/
 fc21dfb5140c9042bd188b72528221337f8c1999 data/bellum/advancement/recipes/combat/iron_scythe.json
 64c0b3226ed54e670539eb134e86a06c33bfca0e data/bellum/advancement/recipes/combat/iron_sickle.json
 766694ce1e9e4984d4a9134dbd5d14f8201fd152 data/bellum/advancement/recipes/combat/netherite_kunai.json
+ed27a32bf19a65c4860a74b9e974331f796adccc data/bellum/advancement/recipes/combat/pitchfork.json
 2ea145c75c295ff2955cc308ec12aae53a947617 data/bellum/advancement/recipes/combat/stone_battle_axe.json
 2ed87dedf50371da5ea28ad73baad06757730eaa data/bellum/advancement/recipes/combat/stone_dagger.json
 bbe1cd2ad9fbc4ee8a8caa1be3a4b0709f22ea36 data/bellum/advancement/recipes/combat/stone_kunai.json
@@ -53,6 +54,7 @@ d14d8ba6b9fd89503d6e7fc7cff6cf1f4bb1d1f4 data/bellum/recipe/iron_dagger.json
 e646a78d75a3cb222cde0bfd8217c50037f29bed data/bellum/recipe/iron_scythe.json
 79543e494b9f18b53d705b85e018e156ecea408d data/bellum/recipe/iron_sickle.json
 041612211c27fafcf12c38d6bcd50f1070802d09 data/bellum/recipe/netherite_kunai.json
+fbd18bf7c9a14cdf1b375f04ee11e252377a098e data/bellum/recipe/pitchfork.json
 593ff806f4656cc032601a42a7728a2d410320b8 data/bellum/recipe/stone_battle_axe.json
 144f5c68af0fd07cb31b3bf444d654e7a305a5f8 data/bellum/recipe/stone_dagger.json
 e18893e1485edd3efe45af806126b5524be78a44 data/bellum/recipe/stone_kunai.json

@@ -2,10 +2,14 @@ package net.enderboy500.bellum.mixin;
 
 import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.content.BellumDamageTypes;
+import net.enderboy500.bellum.content.BellumItems;
+import net.enderboy500.bellum.projectile.AnchorItem;
+import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.BellumTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -33,20 +37,32 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract @org.jspecify.annotations.Nullable ItemStack getItemBlockingWith();
 
+    @Shadow
+    public abstract ItemStack getItemInHand(InteractionHand interactionHand);
+
     public LivingEntityMixin(EntityType<?> type, Level world) {
         super(type, world);
     }
     @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"))
     private void drops(ServerLevel world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
         Random random = new Random();
-        int randomDropChance = random.nextInt(5) + 1;
+        int randomDropChance = random.nextInt(10) + 1;
         if (this.getLastAttacker() != null) {
-            if (this.getLastAttacker().isHolding(Items.TRIDENT) && world instanceof ServerLevel serverLevel) {
+            if (this.getLastAttacker().getWeaponItem().is(BellumTags.ATTUNING_DROPPING_WEAPON) && world instanceof ServerLevel serverLevel) {
                 Optional<Holder<Enchantment>> optional = serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getRandomElementOf(BellumTags.DROPPED_BY_ELDER_GUARDIAN, serverLevel.random);
                 Holder<Enchantment> holder = optional.get();
                 if (holder != null) {
                     ItemStack stack = EnchantmentHelper.createBook(new EnchantmentInstance(holder, 1));
-                    if (this.getType() == EntityType.ELDER_GUARDIAN && randomDropChance <= 2)
+                    if (this.getType().is(BellumTags.DROPS_ATTUNING) && randomDropChance <= 4)
+                        this.spawnAtLocation(serverLevel, stack);
+                }
+            }
+            if (this.getLastAttacker().getWeaponItem().is(BellumTags.SHOCKWAVE_DROPPING_WEAPON) && world instanceof ServerLevel serverLevel) {
+                Optional<Holder<Enchantment>> optional = serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getRandomElementOf(BellumTags.DROPPED_BY_DROWNED, serverLevel.random);
+                Holder<Enchantment> holder = optional.get();
+                if (holder != null) {
+                    ItemStack stack = EnchantmentHelper.createBook(new EnchantmentInstance(holder, 1));
+                    if (this.getType().is(BellumTags.DROPS_SHOCKWAVE) && randomDropChance <= 1)
                         this.spawnAtLocation(serverLevel, stack);
                 }
             }
@@ -57,7 +73,7 @@ public abstract class LivingEntityMixin extends Entity {
     private void shield(ServerLevel serverLevel, LivingEntity livingEntity, CallbackInfo ci) {
         ItemStack stack = this.getItemBlockingWith();
         if (ItemUtils.hasEnchantment(stack, "reflect")) {
-            livingEntity.hurt(serverLevel.damageSources().source(BellumDamageTypes.REFLECTED), (float) livingEntity.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * 0.5f);
+            livingEntity.hurt(serverLevel.damageSources().source(BellumDamageTypes.REFLECTED), (float) livingEntity.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * 0.45f);
         }
     }
 }

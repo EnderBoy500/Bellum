@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public class PlayerMixin {
+
     @Inject(method = "isMobilityRestricted", at = @At("HEAD"), cancellable = true)
     public void enderlib$sprint(CallbackInfoReturnable<Boolean> cir) {
         Player player = (Player) (Object) this;

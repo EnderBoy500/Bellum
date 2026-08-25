@@ -79,12 +79,12 @@ public class KunaiItem extends Item implements ProjectileItem {
             ItemStack itemStack2 = itemStack.consumeAndReturn(1, player);
             ItemStack itemStack3 = itemStack.copy();
             itemStack3.setCount(1);
-            ThrownKunaiEntity thrownTrident = Projectile.spawnProjectileFromRotation(ThrownKunaiEntity::new, serverLevel, itemStack2, player, 0.0f, 2.5f, 0.2f);
-            thrownTrident.getInventory().addItem(itemStack3);
+            ThrownKunaiEntity thrownKunai = Projectile.spawnProjectileFromRotation(ThrownKunaiEntity::new, serverLevel, itemStack2, player, 0.0f, 2.5f, 0.2f);
+            thrownKunai.getInventory().addItem(itemStack3);
             if (player.hasInfiniteMaterials()) {
-                thrownTrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                thrownKunai.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
             }
-            level.playSound(null, thrownTrident, holder.value(), SoundSource.PLAYERS, 1.0f, 1.0f);
+            level.playSound(null, thrownKunai, holder.value(), SoundSource.PLAYERS, 1.0f, 1.0f);
             return InteractionResult.SUCCESS;
         }
         level.playSound(null, player, holder.value(), SoundSource.PLAYERS, 1.0f, 1.0f);

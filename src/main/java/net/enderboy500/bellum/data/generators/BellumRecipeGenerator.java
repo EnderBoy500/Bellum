@@ -79,6 +79,9 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
         copySmithingTemplate(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Items.TRIDENT), tag(ItemTags.NETHERITE_TOOL_MATERIALS), RecipeCategory.COMBAT, BellumItems.HELLFORK).unlocks("has_netherite_ingot", this.has(ItemTags.NETHERITE_TOOL_MATERIALS)).save(this.output, getItemName(BellumItems.HELLFORK) + "_smithing");
+
+        this.shaped(RecipeCategory.COMBAT, BellumItems.PITCHFORK).define('/', Items.STICK).define('#', Items.IRON_INGOT)
+                .pattern(" ##").pattern(" /#").pattern("/  ").unlockedBy(getHasName(BellumItems.PITCHFORK), has(Items.IRON_INGOT)).save(output);
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {

@@ -1,10 +1,9 @@
 package net.enderboy500.bellum.data;
 
+import net.enderboy500.bellum.client.entity.BellumEntityModelLayers;
 import net.enderboy500.bellum.content.BellumEnchantments;
 import net.enderboy500.bellum.data.generators.BellumRecipeGenerator;
-import net.enderboy500.bellum.data.providers.BellumDynamicRegistryProvider;
-import net.enderboy500.bellum.data.providers.BellumItemTagProvider;
-import net.enderboy500.bellum.data.providers.BellumModelProvider;
+import net.enderboy500.bellum.data.providers.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.HolderLookup;
@@ -27,8 +26,10 @@ public class BellumDataGenerator implements DataGeneratorEntrypoint {
 		);
 
 		pack.addProvider(BellumItemTagProvider::new);
+		pack.addProvider(BellumEntityTagProvider::new);
 		pack.addProvider(BellumModelProvider::new);
 		pack.addProvider(BellumDynamicRegistryProvider::new);
+		pack.addProvider(BellumParticleProvider::new);
 
 		pack.addProvider(toFactory(BellumRecipeGenerator.Provider::new, completableFuture));
 	}

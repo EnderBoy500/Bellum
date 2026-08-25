@@ -123,7 +123,7 @@ public class ThrownHellfork extends AbstractArrow {
 
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        float f = 8.0F;
+        float f = 9.0F;
         Entity entity2 = this.getOwner();
         DamageSource damageSource = this.damageSources().trident(this, (Entity) (entity2 == null ? this : entity2));
         Level var7 = this.level();

@@ -1,6 +1,7 @@
 {
   "values": [
     "#bellum:battle_axes",
-    "#bellum:scythes"
+    "#bellum:scythes",
+    "bellum:anchor"
   ]
 }

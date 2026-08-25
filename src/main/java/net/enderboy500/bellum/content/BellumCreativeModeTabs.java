@@ -54,8 +54,10 @@ public class BellumCreativeModeTabs {
                         output.accept(BellumItems.DIAMOND_KUNAI);
                         output.accept(BellumItems.NETHERITE_KUNAI);
 
+                        output.accept(BellumItems.PITCHFORK);
                         output.accept(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE);
                         output.accept(BellumItems.HELLFORK);
+                        output.accept(BellumItems.ANCHOR);
                     }
                     )).build());
 

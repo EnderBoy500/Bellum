@@ -10,6 +10,7 @@ public class BellumEntityModelLayers {
     private static final String MAIN = "main";
     private static final Set<ModelLayerLocation> LAYERS = Sets.newHashSet();
     public static final ModelLayerLocation HELLFORK = registerMain("hellfork");
+    public static final ModelLayerLocation PITCHFORK = registerMain("pitchfork");
 
     private static ModelLayerLocation registerMain(String id) {
         return register(id, "main");

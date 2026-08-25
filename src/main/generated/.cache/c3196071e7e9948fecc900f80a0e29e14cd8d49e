@@ -1,0 +1,4 @@
+// 1.21.11	-999999999-01-01T00:00:00	Bellum/Tags for minecraft:entity_type
+a15d44b6e4cb2744c21fd173d65bb9858de283b1 data/bellum/tags/entity_type/drop_shockwave.json
+10173428ff8a63550e9c0bbedd2ad68d7acf158b data/bellum/tags/entity_type/drops_attuning.json
+a15d44b6e4cb2744c21fd173d65bb9858de283b1 data/minecraft/tags/entity_type/sensitive_to_impaling.json

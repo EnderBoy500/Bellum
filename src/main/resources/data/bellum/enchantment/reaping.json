@@ -3,6 +3,7 @@
   "description": {
     "translate": "enchantment.bellum.reaping"
   },
+  "exclusive_set": "#bellum:incompatible_with_reaping",
   "effects": {
     "minecraft:post_attack": [
       {

@@ -36,6 +36,8 @@
   "item.bellum.diamond_battle_axe": "Diamond Battle Axe",
   "item.bellum.netherite_battle_axe": "Netherite Battle Axe",
   "item.bellum.hellfork": "Hellfork",
+  "item.bellum.pitchfork": "Pitchfork",
+  "item.bellum.anchor": "Anchor",
   "item.bellum.hellfork_upgrade_smithing_template": "Hellfork Upgrade Smithing Template",
   "item.bellum.smithing_template.hellfork_upgrade.applies_to": "Trident",
   "item.bellum.smithing_template.hellfork_upgrade.base_slot_description": "Add a trident",
@@ -50,8 +52,12 @@
 
   "enchantment.bellum.reaping": "Reaping",
   "enchantment.bellum.reaping.desc": "Allows the player to reap and stun your targets",
+  "enchantment.bellum.reeling": "Reeling",
+  "enchantment.bellum.reeling.desc": "Allows the anchor to attack to blocks and pull the player towards it",
   "enchantment.bellum.attuning": "Attuning",
   "enchantment.bellum.attuning.desc": "Allows riptide movement by draining your soul",
+  "enchantment.bellum.shockwave": "Shockwave",
+  "enchantment.bellum.shockwave.desc": "Creates a shockwave when impacts with blocks",
   "enchantment.bellum.reflection": "Reflection",
   "enchantment.bellum.reflection.desc": "Reflects 50% of damage blocked by a shield",
 

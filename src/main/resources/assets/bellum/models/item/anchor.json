@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bellum:item/anchor",
+    "particle": "bellum:item/anchor"
+  },
+  "gui_light": "front",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [-50, -90, 0],
+      "translation": [0, 3.75, 1],
+      "scale": [1.8, 1.8, 1]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [50, -90, 0],
+      "translation": [0, 3.75, 1],
+      "scale": [1.8, 1.8, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [-50, -90, 0],
+      "translation": [0, 1.75, 1],
+      "scale": [1.8, 1.8, 1]
+    },
+    "firstperson_lefthand": {
+      "rotation": [50, -90, 0],
+      "translation": [0, 1.75, 1],
+      "scale": [1.8, 1.8, 1]
+    },
+    "ground": {
+      "scale": [1.5, 1.5, 0.5]
+    },
+    "gui": {
+      "scale": [1, 1, 1.5]
+    },
+    "head": {
+      "rotation": [180, 0, 45],
+      "translation": [0, 0.5, 1],
+      "scale": [1.8, 1.8, 1]
+    },
+    "fixed": {
+      "scale": [4, 4, 1.5]
+    }
+  }
+}

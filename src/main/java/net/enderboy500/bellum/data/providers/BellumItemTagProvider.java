@@ -65,13 +65,16 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         valueLookupBuilder(ItemTags.TRIDENT_ENCHANTABLE)
-                .add(BellumItems.HELLFORK);
+                .add(BellumItems.HELLFORK)
+                .add(BellumItems.PITCHFORK)
+        ;
 
         valueLookupBuilder(ItemTags.SWEEPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
@@ -84,44 +87,65 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.MINING_ENCHANTABLE)
                 .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.SCYTHES)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
                 .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.SCYTHES)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.MELEE_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(BellumTags.REFLECT_ENCHANTABLE)
                 .add(Items.SHIELD)
+        ;
+        valueLookupBuilder(BellumTags.ATTUNING_DROPPING_WEAPON)
+                .add(Items.TRIDENT)
+        ;
+        valueLookupBuilder(BellumTags.REELING_ENCHANTABLE)
+                .add(BellumItems.ANCHOR)
+        ;
+        valueLookupBuilder(BellumTags.SHOCKWAVE_ENCHANTABLE)
+                .add(BellumItems.ANCHOR)
+        ;
+        valueLookupBuilder(BellumTags.SHOCKWAVE_DROPPING_WEAPON)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.VANISHING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
+                .addTag(BellumTags.SCYTHES)
+                .add(BellumItems.ANCHOR)
         ;
     }
 }

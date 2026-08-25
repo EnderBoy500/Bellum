@@ -3,10 +3,13 @@ package net.enderboy500.bellum.content;
 import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import net.enderboy500.bellum.item.BattleAxeItem;
+import net.enderboy500.bellum.projectile.AnchorItem;
 import net.enderboy500.bellum.projectile.HellforkItem;
 import net.enderboy500.bellum.projectile.KunaiItem;
 import net.enderboy500.bellum.item.ScytheItem;
 import net.enderboy500.bellum.item.SickleItem;
+import net.enderboy500.bellum.projectile.PitchforkItem;
+import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.SmithingTemplateUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.*;
@@ -69,7 +72,9 @@ public class BellumItems {
     public static final Item DIAMOND_BATTLE_AXE = register("diamond_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.DIAMOND, 6.5f, -3.2F, properties), new Item.Properties());
     public static final Item NETHERITE_BATTLE_AXE = register("netherite_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.NETHERITE, 6.5f, -3.2F, properties), new Item.Properties());
 
-    public static final Item HELLFORK = register("hellfork", HellforkItem::new, new Item.Properties().rarity(Rarity.EPIC).repairable(Items.NETHERITE_INGOT).durability(684).attributes(HellforkItem.createAttributes()).component(DataComponents.TOOL, HellforkItem.createToolProperties()).enchantable(1).component(DataComponents.WEAPON, new Weapon(1)));
+    public static final Item HELLFORK = register("hellfork", HellforkItem::new, new Item.Properties().rarity(Rarity.EPIC).repairable(Items.BLAZE_ROD).durability(684).attributes(HellforkItem.createAttributes()).component(DataComponents.TOOL, HellforkItem.createToolProperties()).enchantable(1).component(DataComponents.WEAPON, new Weapon(1)));
+    public static final Item PITCHFORK = register("pitchfork", PitchforkItem::new, new Item.Properties().rarity(Rarity.COMMON).repairable(Items.IRON_INGOT).durability(84).attributes(PitchforkItem.createAttributes()).component(DataComponents.TOOL, PitchforkItem.createToolProperties()).enchantable(1).component(DataComponents.WEAPON, new Weapon(1)));
+    public static final Item ANCHOR = register("anchor", AnchorItem::new, new Item.Properties().rarity(Rarity.EPIC).durability(765).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
 
     public static final Item HELLFORK_UPGRADE_SMITHING_TEMPLATE = register("hellfork_upgrade_smithing_template", SmithingTemplateUtil::createHellforkUpgradeTemplate, (new Item.Properties()).rarity(Rarity.RARE).fireResistant());
 
