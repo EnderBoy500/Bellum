@@ -11,7 +11,8 @@
 		"TridentItemMixin",
 		"LivingEntityMixin",
 		"ModelRenderingMixin",
-		"FireChargeItemMixin"
+		"FireChargeItemMixin",
+		"BlockAttacksMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

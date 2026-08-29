@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:wooden_sword",
+    "/": "minecraft:stick"
+  },
+  "pattern": [
+    "  #",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bellum:wooden_naginata"
+  }
+}

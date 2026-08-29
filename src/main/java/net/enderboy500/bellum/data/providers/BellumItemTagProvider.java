@@ -111,16 +111,14 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
-                .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
-                .add(BellumItems.ANCHOR)
         ;
-        valueLookupBuilder(BellumTags.REFLECT_ENCHANTABLE)
+        valueLookupBuilder(BellumTags.SHIELD_ENCHANTABLE)
                 .add(Items.SHIELD)
         ;
         valueLookupBuilder(BellumTags.ATTUNING_DROPPING_WEAPON)
@@ -134,6 +132,9 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
         valueLookupBuilder(BellumTags.SHOCKWAVE_DROPPING_WEAPON)
                 .add(BellumItems.ANCHOR)
+        ;
+        valueLookupBuilder(BellumTags.ROCKET_BOOST_ENCHANTABLE)
+                .add(Items.ELYTRA)
         ;
         valueLookupBuilder(ItemTags.VANISHING_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)

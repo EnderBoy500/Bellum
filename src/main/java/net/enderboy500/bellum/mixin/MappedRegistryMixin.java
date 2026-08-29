@@ -19,10 +19,10 @@ public abstract class MappedRegistryMixin<T> implements WritableRegistry<T> {
     public void freeze(CallbackInfoReturnable<Registry<T>> cir) {
         if (this.frozen) return;
 
-        try {
+/*        try {
             this.addAlias(Bellum.id("kunai"), Bellum.id("iron_kunai"));
         } catch (Throwable e) {
             Bellum.LOGGER.info("Failed to set alias 'bellum:kunai' -> 'bellum:iron_kunai'");
-        }
+        }*/
     }
 }

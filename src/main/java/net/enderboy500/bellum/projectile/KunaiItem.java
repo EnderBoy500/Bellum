@@ -39,8 +39,7 @@ public class KunaiItem extends Item implements ProjectileItem {
     public final float damage;
 
     public KunaiItem(Properties properties, float damage) {
-        super(properties.component(BellumDataComponents.KUNAI_ATTACK_DAMAGE, damage).stacksTo(16)
-                .component(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID,damage - 1 , AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.9f, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
+        super(properties.component(BellumDataComponents.KUNAI_ATTACK_DAMAGE, damage).stacksTo(16));
         this.damage = damage;
     }
 
@@ -48,29 +47,10 @@ public class KunaiItem extends Item implements ProjectileItem {
         return new Tool(List.of(), 1.0f, 2, false);
     }
 
-    @Override
-    public ItemUseAnimation getUseAnimation(ItemStack itemStack) {
-        return ItemUseAnimation.TRIDENT;
-    }
-
-    @Override
-    public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
-        return 72000;
-    }
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
-        if (itemStack.nextDamageWillBreak()) {
-            return InteractionResult.FAIL;
-        }
-        int j = this.getUseDuration(itemStack, player);
-        if (j < 10) {
-            return InteractionResult.FAIL;
-        }
-        if (itemStack.nextDamageWillBreak()) {
-            return InteractionResult.FAIL;
-        }
         Holder<SoundEvent> holder = EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
         player.awardStat(Stats.ITEM_USED.get(this));
         if (level instanceof ServerLevel) {
@@ -80,7 +60,6 @@ public class KunaiItem extends Item implements ProjectileItem {
             ItemStack itemStack3 = itemStack.copy();
             itemStack3.setCount(1);
             ThrownKunaiEntity thrownKunai = Projectile.spawnProjectileFromRotation(ThrownKunaiEntity::new, serverLevel, itemStack2, player, 0.0f, 2.5f, 0.2f);
-            thrownKunai.getInventory().addItem(itemStack3);
             if (player.hasInfiniteMaterials()) {
                 thrownKunai.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
             }
@@ -109,7 +88,9 @@ public class KunaiItem extends Item implements ProjectileItem {
         super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
     }
 
-    public static Item registerKunai(String id, float damage) {
-        return BellumItems.register(id, properties -> new KunaiItem(properties, damage), (new Item.Properties()).useCooldown(100).component(DataComponents.TOOL, KunaiItem.createToolProperties()).component(DataComponents.WEAPON, new Weapon(1)));
+    public static Item registerKunai(String id, float damage, boolean fireRes) {
+        Item.Properties settings = new Properties().useCooldown(0.2f).component(DataComponents.TOOL, KunaiItem.createToolProperties()).component(DataComponents.WEAPON, new Weapon(1));
+        if (fireRes) settings.fireResistant();
+        return BellumItems.register(id, properties -> new KunaiItem(properties, damage), settings);
     }
 }

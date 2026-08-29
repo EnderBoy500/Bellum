@@ -1,10 +1,7 @@
 package net.enderboy500.bellum.content;
 
 import net.enderboy500.bellum.Bellum;
-import net.enderboy500.bellum.projectile.ThrownAnchor;
-import net.enderboy500.bellum.projectile.ThrownHellfork;
-import net.enderboy500.bellum.projectile.ThrownKunaiEntity;
-import net.enderboy500.bellum.projectile.ThrownPitchfork;
+import net.enderboy500.bellum.projectile.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricTrackedDataRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

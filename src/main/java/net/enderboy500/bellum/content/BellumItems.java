@@ -3,13 +3,10 @@ package net.enderboy500.bellum.content;
 import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import net.enderboy500.bellum.item.BattleAxeItem;
-import net.enderboy500.bellum.projectile.AnchorItem;
-import net.enderboy500.bellum.projectile.HellforkItem;
-import net.enderboy500.bellum.projectile.KunaiItem;
+import net.enderboy500.bellum.item.NaginataItem;
+import net.enderboy500.bellum.projectile.*;
 import net.enderboy500.bellum.item.ScytheItem;
 import net.enderboy500.bellum.item.SickleItem;
-import net.enderboy500.bellum.projectile.PitchforkItem;
-import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.SmithingTemplateUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.*;
@@ -34,35 +31,37 @@ public class BellumItems {
             new Item.Properties().stacksTo(1).fireResistant().component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
 
     public static final Item WOODEN_SCYTHE = register("wooden_scythe", properties -> new ScytheItem(ToolMaterial.WOOD, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item STONE_SCYTHE = register("stone_scythe", properties -> new ScytheItem(ToolMaterial.STONE, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item COPPER_SCYTHE = register("copper_scythe", properties -> new ScytheItem(ToolMaterial.COPPER, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item IRON_SCYTHE = register("iron_scythe", properties -> new ScytheItem(ToolMaterial.IRON, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item GOLDEN_SCYTHE = register("golden_scythe", properties -> new ScytheItem(ToolMaterial.GOLD, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item DIAMOND_SCYTHE = register("diamond_scythe", properties -> new ScytheItem(ToolMaterial.DIAMOND, properties),
-            new Item.Properties().stacksTo(1).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties());
     public static final Item NETHERITE_SCYTHE = register("netherite_scythe", properties -> new ScytheItem(ToolMaterial.NETHERITE, properties),
-            new Item.Properties().stacksTo(1).fireResistant().component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+            new Item.Properties().fireResistant());
 
-    public static final Item WOODEN_DAGGER = register("wooden_dagger", Item::new, new Item.Properties().sword(ToolMaterial.WOOD, 2.25f, -2));
-    public static final Item COPPER_DAGGER = register("copper_dagger", Item::new, new Item.Properties().sword(ToolMaterial.COPPER, 2, -1.8f));
-    public static final Item STONE_DAGGER = register("stone_dagger", Item::new, new Item.Properties().sword(ToolMaterial.STONE, 2, -2));
-    public static final Item GOLDEN_DAGGER = register("golden_dagger", Item::new, new Item.Properties().sword(ToolMaterial.GOLD, 2.25f, -1.8f));
+    public static final Item WOODEN_DAGGER = register("wooden_dagger", Item::new, new Item.Properties().sword(ToolMaterial.WOOD, 2.25f, -2).component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
+    public static final Item COPPER_DAGGER = register("copper_dagger", Item::new, new Item.Properties().sword(ToolMaterial.COPPER, 2, -1.8f).component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
+    public static final Item STONE_DAGGER = register("stone_dagger", Item::new, new Item.Properties().sword(ToolMaterial.STONE, 2, -2).component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
+    public static final Item GOLDEN_DAGGER = register("golden_dagger", Item::new, new Item.Properties().sword(ToolMaterial.GOLD, 2.25f, -1.8f).component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
     public static final Item IRON_DAGGER = register("iron_dagger", Item::new, new Item.Properties().sword(ToolMaterial.IRON, 2.75f, -2));
-    public static final Item DIAMOND_DAGGER = register("diamond_dagger", Item::new, new Item.Properties().sword(ToolMaterial.DIAMOND, 1.5f, -2));
-    public static final Item NETHERITE_DAGGER = register("netherite_dagger", Item::new, new Item.Properties().sword(ToolMaterial.NETHERITE, 1.25f, -2));
+    public static final Item DIAMOND_DAGGER = register("diamond_dagger", Item::new, new Item.Properties().sword(ToolMaterial.DIAMOND, 1.5f, -2).component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
+    public static final Item NETHERITE_DAGGER = register("netherite_dagger", Item::new, new Item.Properties().sword(ToolMaterial.NETHERITE, 1.25f, -2).fireResistant().component(DataComponents.DAMAGE_TYPE, new EitherHolder<>(BellumDamageTypes.STABBED)));
 
-    public static final Item WOODEN_KUNAI = KunaiItem.registerKunai("wooden_kunai", 3.5f);
-    public static final Item COPPER_KUNAI = KunaiItem.registerKunai("copper_kunai", 4f);
-    public static final Item STONE_KUNAI = KunaiItem.registerKunai("stone_kunai", 4f);
-    public static final Item GOLDEN_KUNAI = KunaiItem.registerKunai("golden_kunai", 4.25f);
-    public static final Item IRON_KUNAI = KunaiItem.registerKunai("iron_kunai", 4.5f);
-    public static final Item DIAMOND_KUNAI = KunaiItem.registerKunai("diamond_kunai", 4.75f);
-    public static final Item NETHERITE_KUNAI = KunaiItem.registerKunai("netherite_kunai", 5f);
+
+
+    public static final Item WOODEN_KUNAI = KunaiItem.registerKunai("wooden_kunai", 2.5f, false);
+    public static final Item COPPER_KUNAI = KunaiItem.registerKunai("copper_kunai", 3f, false);
+    public static final Item STONE_KUNAI = KunaiItem.registerKunai("stone_kunai", 3f, false);
+    public static final Item GOLDEN_KUNAI = KunaiItem.registerKunai("golden_kunai", 3.25f, false);
+    public static final Item IRON_KUNAI = KunaiItem.registerKunai("iron_kunai", 3.5f, false);
+    public static final Item DIAMOND_KUNAI = KunaiItem.registerKunai("diamond_kunai", 3.75f, false);
+    public static final Item NETHERITE_KUNAI = KunaiItem.registerKunai("netherite_kunai", 4f, true);
 
     public static final Item WOODEN_BATTLE_AXE = register("wooden_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.WOOD, 6.5f, -3.2F, properties), new Item.Properties());
     public static final Item COPPER_BATTLE_AXE = register("copper_battle_axe", (properties) -> new BattleAxeItem(ToolMaterial.COPPER, 6.5f, -3.2F, properties), new Item.Properties());
@@ -77,6 +76,21 @@ public class BellumItems {
     public static final Item ANCHOR = register("anchor", AnchorItem::new, new Item.Properties().rarity(Rarity.EPIC).durability(765).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
 
     public static final Item HELLFORK_UPGRADE_SMITHING_TEMPLATE = register("hellfork_upgrade_smithing_template", SmithingTemplateUtil::createHellforkUpgradeTemplate, (new Item.Properties()).rarity(Rarity.RARE).fireResistant());
+
+    public static final Item WOODEN_NAGINATA = register("wooden_naginata", properties -> new NaginataItem(ToolMaterial.WOOD, properties),
+            new Item.Properties());
+    public static final Item STONE_NAGINATA = register("stone_naginata", properties -> new NaginataItem(ToolMaterial.STONE, properties),
+            new Item.Properties());
+    public static final Item COPPER_NAGINATA = register("copper_naginata", properties -> new NaginataItem(ToolMaterial.COPPER, properties),
+            new Item.Properties());
+    public static final Item IRON_NAGINATA = register("iron_naginata", properties -> new NaginataItem(ToolMaterial.IRON, properties),
+            new Item.Properties());
+    public static final Item GOLDEN_NAGINATA = register("golden_naginata", properties -> new NaginataItem(ToolMaterial.GOLD, properties),
+            new Item.Properties());
+    public static final Item DIAMOND_NAGINATA = register("diamond_naginata", properties -> new NaginataItem(ToolMaterial.DIAMOND, properties),
+            new Item.Properties());
+    public static final Item NETHERITE_NAGINATA = register("netherite_naginata", properties -> new NaginataItem(ToolMaterial.NETHERITE, properties),
+            new Item.Properties().fireResistant());
 
     public static Item register(String id, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         return RegistryHelper.registerItem(id, itemFactory, settings);

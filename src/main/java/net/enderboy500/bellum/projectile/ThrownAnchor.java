@@ -48,6 +48,7 @@ public class ThrownAnchor extends AbstractArrow {
     private boolean dealtDamage = false;
     public int clientSideReturnTridentTickCount;
     public int returnTimer = 0;
+    public int returnTimerAfterInGround = 0;
 
     public ThrownAnchor(EntityType<? extends ThrownAnchor> entityType, Level level) {
         super(entityType, level);
@@ -118,6 +119,11 @@ public class ThrownAnchor extends AbstractArrow {
         entityData.set(CHAIN, identifier);
     }
 
+    @Override
+    public boolean isNoGravity() {
+        return this.getOwner() != null;
+    }
+
     public void tick() {
         int i = 3;
         Entity entity = this.getOwner();
@@ -125,8 +131,27 @@ public class ThrownAnchor extends AbstractArrow {
             this.dealtDamage = true;
         }
 
-        if (returnTimer <= 12) returnTimer++;
-        else if (!isInGround()){
+        if (returnTimer <= 14) returnTimer++;
+        else if (entity != null && !isInGround()){
+            if (!(entity instanceof Player) && this.position().distanceTo(entity.getEyePosition()) < (double) entity.getBbWidth() + (double) 1.0F) {
+                this.discard();
+                return;
+            }
+
+            this.setNoPhysics(true);
+            Vec3 vec3 = entity.getEyePosition().subtract(this.position());
+            this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015 * (double) i, this.getZ());
+            double d = 0.05 * (double) i;
+            this.setDeltaMovement(this.getDeltaMovement().scale(0.95).add(vec3.normalize().scale(d)));
+            if (this.clientSideReturnTridentTickCount == 0) {
+                this.playSound(SoundEvents.TRIDENT_RETURN, 10.0F, 1.0F);
+            }
+
+            ++this.clientSideReturnTridentTickCount;
+        }
+
+        if (returnTimerAfterInGround <= 100 && isInGround()) returnTimerAfterInGround++;
+        else if (entity != null && returnTimerAfterInGround >= 100){
             if (!(entity instanceof Player) && this.position().distanceTo(entity.getEyePosition()) < (double) entity.getBbWidth() + (double) 1.0F) {
                 this.discard();
                 return;
@@ -236,7 +261,7 @@ public class ThrownAnchor extends AbstractArrow {
 
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        float f = entity.isInWaterOrRain() ? 9 + 5 : 9;
+        float f = entity.isInWaterOrRain() ? 8 + 6 : 8;
         Entity entity2 = this.getOwner();
         DamageSource damageSource = this.damageSources().trident(this, (Entity) (entity2 == null ? this : entity2));
         Level var7 = this.level();
@@ -249,6 +274,8 @@ public class ThrownAnchor extends AbstractArrow {
             if (entity.getType() == EntityType.ENDERMAN) {
                 return;
             }
+
+            if (entity2 instanceof Player player) player.getCooldowns().addCooldown(this.getPickupItem(), 30);
 
             var7 = this.level();
             if (var7 instanceof ServerLevel) {

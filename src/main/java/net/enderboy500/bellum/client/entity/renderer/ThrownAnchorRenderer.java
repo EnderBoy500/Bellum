@@ -49,7 +49,7 @@ public class ThrownAnchorRenderer extends EntityRenderer<ThrownAnchor, ThrownAnc
         poseStack.mulPose(Axis.ZP.rotationDegrees(thrownAnchorRenderState.xRot - 45));
         thrownAnchorRenderState.itemStackRenderState.submit(poseStack, submitNodeCollector, thrownAnchorRenderState.lightCoords, OverlayTexture.NO_OVERLAY, thrownAnchorRenderState.outlineColor);
         poseStack.popPose();
-
+        //DON'T TOUCH THE CHAIN RENDERER I DON'T KNOW HOW TO FIX IT IF IT BREAKS AGAIN
         if (thrownAnchorRenderState.ownerOffset != null) {
             Vec3 ring = thrownAnchorRenderState.ringOffset;
             Vec3 owner = thrownAnchorRenderState.ownerOffset;

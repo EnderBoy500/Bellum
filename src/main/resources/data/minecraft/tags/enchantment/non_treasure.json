@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bellum:reflection"
+    "bellum:reflection",
+    "bellum:second_chance"
   ]
 }

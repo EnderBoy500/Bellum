@@ -17,6 +17,8 @@ public class BellumParticleProvider extends ParticleResourceProvider {
     @Override
     protected void generate(Output output) {
         output.accept(BellumParticleTypes.ANCHOR_SWEEP, getNumberedList(Bellum.id("sweeps/anchor_sweep"), 7));
+        output.accept(BellumParticleTypes.CIPHERED_SWEEP, getNumberedList(Bellum.id("sweeps/ciphered_sweep"), 7));
+        output.accept(BellumParticleTypes.SOUL_SWEEP, getNumberedList(Bellum.id("sweeps/soul_sweep"), 7));
         output.accept(BellumParticleTypes.SHOCKWAVE, getNumberedList(Bellum.id("shockwave"), 7));
     }
 

@@ -41,6 +41,13 @@
   "item.bellum.hellfork_upgrade_smithing_template": "Hellfork Upgrade Smithing Template",
   "item.bellum.smithing_template.hellfork_upgrade.applies_to": "Trident",
   "item.bellum.smithing_template.hellfork_upgrade.base_slot_description": "Add a trident",
+  "item.bellum.wooden_naginata": "Wooden Naginata",
+  "item.bellum.stone_naginata": "Stone Naginata",
+  "item.bellum.copper_naginata": "Copper Naginata",
+  "item.bellum.iron_naginata": "Iron Naginata",
+  "item.bellum.golden_naginata": "Golden Naginata",
+  "item.bellum.diamond_naginata": "Diamond Naginata",
+  "item.bellum.netherite_naginata": "Netherite Naginata",
 
 
   "item.skin.bellum.ciphered_sickle": "Ciphered Sickle",
@@ -49,6 +56,11 @@
 
   "effect.bellum.bleeding": "Bleeding",
   "effect.bellum.stun": "Stun",
+
+  "entity.bellum.kunai" : "kunai",
+  "entity.bellum.hellfork" : "Hellfork",
+  "entity.bellum.pitchfork" : "Pitchfork",
+  "entity.bellum.anchor" : "Anchor",
 
   "enchantment.bellum.reaping": "Reaping",
   "enchantment.bellum.reaping.desc": "Allows the player to reap and stun your targets",
@@ -59,7 +71,11 @@
   "enchantment.bellum.shockwave": "Shockwave",
   "enchantment.bellum.shockwave.desc": "Creates a shockwave when impacts with blocks",
   "enchantment.bellum.reflection": "Reflection",
-  "enchantment.bellum.reflection.desc": "Reflects 50% of damage blocked by a shield",
+  "enchantment.bellum.reflection.desc": "Reflects 45% of damage blocked by a shield",
+  "enchantment.bellum.second_chance": "Second Chance",
+  "enchantment.bellum.second_chance.desc": "Gives the used a second chance when a shield is breaking",
+  "enchantment.bellum.rocket_boost": "Rocket Boost",
+  "enchantment.bellum.rocket_boost.desc": "Gives a boost when flying with Elytra and jumping",
 
   "tooltip.bellum.kunai.effect": "Effect(s): ",
 
@@ -69,6 +85,8 @@
   "death.attack.drained_soul.player": "%1$s irresponsibly drained their soul while irresponsibly escaping %2$s",
   "death.attack.refected": "%1$s died to their own damage",
   "death.attack.refected.player": "%1$s died to their own damage while fighting %2$s",
+  "death.attack.stabbed": "%1$s was stabbed",
+  "death.attack.stabbed.player": "%1$s was stabbed by %2$s",
 
   "itemgroup.bellum": "Bellum"
 }

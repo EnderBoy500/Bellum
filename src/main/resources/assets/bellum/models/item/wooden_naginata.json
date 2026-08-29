@@ -1,0 +1,6 @@
+{
+	"parent": "bellum:item/naginata",
+	"textures": {
+		"layer0": "bellum:item/wooden_naginata"
+	}
+}

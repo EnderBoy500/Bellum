@@ -46,14 +46,14 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"))
     private void drops(ServerLevel world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
         Random random = new Random();
-        int randomDropChance = random.nextInt(10) + 1;
+        int randomDropChance = random.nextInt(20) + 1;
         if (this.getLastAttacker() != null) {
             if (this.getLastAttacker().getWeaponItem().is(BellumTags.ATTUNING_DROPPING_WEAPON) && world instanceof ServerLevel serverLevel) {
                 Optional<Holder<Enchantment>> optional = serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getRandomElementOf(BellumTags.DROPPED_BY_ELDER_GUARDIAN, serverLevel.random);
                 Holder<Enchantment> holder = optional.get();
                 if (holder != null) {
                     ItemStack stack = EnchantmentHelper.createBook(new EnchantmentInstance(holder, 1));
-                    if (this.getType().is(BellumTags.DROPS_ATTUNING) && randomDropChance <= 4)
+                    if (this.getType().is(BellumTags.DROPS_ATTUNING) && randomDropChance <= 8)
                         this.spawnAtLocation(serverLevel, stack);
                 }
             }

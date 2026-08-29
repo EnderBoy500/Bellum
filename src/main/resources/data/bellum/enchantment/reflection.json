@@ -16,6 +16,6 @@
     "mainhand",
     "offhand"
   ],
-  "supported_items": "#bellum:reflect_enchantable",
+  "supported_items": "#bellum:shield_enchantable",
   "weight": 10
 }

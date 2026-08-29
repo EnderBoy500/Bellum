@@ -68,6 +68,15 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
         generateBattleAxe(BellumItems.GOLDEN_BATTLE_AXE, Items.GOLD_INGOT);
         generateBattleAxe(BellumItems.DIAMOND_BATTLE_AXE, Items.DIAMOND);
 
+        generateNaginata(Items.WOODEN_SWORD, BellumItems.WOODEN_NAGINATA);
+        generateNaginata(Items.STONE_SWORD, BellumItems.STONE_NAGINATA);
+        generateNaginata(Items.COPPER_SWORD, BellumItems.COPPER_NAGINATA);
+        generateNaginata(Items.IRON_SWORD, BellumItems.IRON_NAGINATA);
+        generateNaginata(Items.GOLDEN_SWORD, BellumItems.GOLDEN_NAGINATA);
+        generateNaginata(Items.DIAMOND_SWORD, BellumItems.DIAMOND_NAGINATA);
+
+        netheriteSmithing(BellumItems.DIAMOND_NAGINATA, RecipeCategory.COMBAT, BellumItems.NETHERITE_NAGINATA);
+
         this.shaped(RecipeCategory.COMBAT, BellumItems.NETHERITE_KUNAI, 8).define('#', BellumItems.DIAMOND_KUNAI)
                 .define('N', Items.NETHERITE_INGOT).pattern("###").pattern("#N#").pattern("###")
                 .unlockedBy(getHasName(BellumItems.NETHERITE_KUNAI), has(Items.NETHERITE_INGOT)).save(output);
@@ -107,6 +116,11 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
     public void generateKunai(ItemLike base, Item outputItem) {
         this.shaped(RecipeCategory.COMBAT, outputItem, 2).define('#', base).define('/', Items.STICK).pattern("#")
                 .pattern("/").pattern("#").unlockedBy(getHasName(outputItem), has(base)).save(output);
+    }
+
+    public void generateNaginata(ItemLike base, Item outputItem) {
+        this.shaped(RecipeCategory.COMBAT, outputItem).define('#', base).define('/', Items.STICK).pattern("  #")
+                .pattern(" / ").pattern("/  ").unlockedBy(getHasName(outputItem), has(base)).save(output);
     }
 
     public static class Provider extends RecipeProvider.Runner {

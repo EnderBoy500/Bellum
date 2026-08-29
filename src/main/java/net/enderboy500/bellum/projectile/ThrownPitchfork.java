@@ -65,6 +65,7 @@ public class ThrownPitchfork extends AbstractArrow {
         }
 
         Entity entity = this.getOwner();
+        
         int i = this.entityData.get(ID_LOYALTY);
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {

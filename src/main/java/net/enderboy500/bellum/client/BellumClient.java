@@ -1,14 +1,13 @@
 package net.enderboy500.bellum.client;
 
 import net.enderboy500.bellum.client.entity.BellumEntityModelLayers;
-import net.enderboy500.bellum.client.entity.renderer.HellforkRenderer;
-import net.enderboy500.bellum.client.entity.renderer.PitchforkRenderer;
-import net.enderboy500.bellum.client.entity.renderer.ThrownAnchorRenderer;
-import net.enderboy500.bellum.client.entity.renderer.ThrownKunaiRenderer;
+import net.enderboy500.bellum.client.entity.renderer.*;
+import net.enderboy500.bellum.client.event.BellumClientEvents;
 import net.enderboy500.bellum.client.particle.ShockwaveParticle;
 import net.enderboy500.bellum.content.BellumEntities;
 import net.enderboy500.bellum.content.BellumParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -29,5 +28,7 @@ public class BellumClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BellumParticleTypes.SOUL_SWEEP, AttackSweepParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BellumParticleTypes.ANCHOR_SWEEP, AttackSweepParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BellumParticleTypes.SHOCKWAVE, ShockwaveParticle.Provider::new);
+
+        ClientTickEvents.END_CLIENT_TICK.register(BellumClientEvents::onEndTick);
     }
 }

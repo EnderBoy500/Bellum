@@ -44,11 +44,13 @@ public class ThrownKunaiEntity extends AbstractArrow implements InventoryCarrier
     ThrownKunaiEntity(Level level, LivingEntity livingEntity, ItemStack itemStack) {
         super(BellumEntities.THROWN_KUNAI, livingEntity, level, itemStack, null);
         this.entityData.set(ID_FOIL, itemStack.hasFoil());
+        getInventory().setItem(0, itemStack);
     }
 
     ThrownKunaiEntity(Level level, double d, double e, double f, ItemStack itemStack) {
         super(BellumEntities.THROWN_KUNAI, d, e, f, level, itemStack, itemStack);
         this.entityData.set(ID_FOIL, itemStack.hasFoil());
+        getInventory().setItem(0, itemStack);
     }
 
     @Override

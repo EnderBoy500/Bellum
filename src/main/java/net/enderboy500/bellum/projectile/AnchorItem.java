@@ -1,6 +1,7 @@
 package net.enderboy500.bellum.projectile;
 
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
+import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.content.BellumParticleTypes;
 import net.enderboy500.bellum.util.BellumDataComponents;
@@ -35,43 +36,13 @@ import java.util.List;
 
 public class AnchorItem extends Item implements ProjectileItem {
     public AnchorItem(Properties properties) {
-        super(properties.pickaxe(ToolMaterial.NETHERITE, 5, -3).durability(1024).attributes(createAttributes())
+        super(properties.pickaxe(ToolMaterial.NETHERITE, 5, -3).durability(1024).attributes(createAttributes()).repairable(Items.IRON_BLOCK)
                 .component(BellumDataComponents.ANCHOR_CHAIN, Bellum.DEFAULT_ANCHOR_CHAIN).component(CipherLibComponents.SWEEP_ATTACK_PARTICLE, BellumParticleTypes.ANCHOR_SWEEP));
     }
 
     public static ItemAttributeModifiers createAttributes() {
-        return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)9F, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double)-2.9F, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+        return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)7F, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double)-3.1F, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.SUBMERGED_MINING_SPEED, new AttributeModifier(Identifier.withDefaultNamespace("base_submerged_mine_speed"), 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
-    }
-
-
-    public ItemUseAnimation getUseAnimation(ItemStack itemStack) {
-        return ItemUseAnimation.TRIDENT;
-    }
-
-    public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
-        return 200;
-    }
-
-    public boolean releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int i) {
-        if (livingEntity instanceof Player player) {
-            Holder<SoundEvent> holder = EnchantmentHelper.pickHighestLevel(itemStack, EnchantmentEffectComponents.TRIDENT_SOUND).orElse(SoundEvents.TRIDENT_THROW);
-            player.awardStat(Stats.ITEM_USED.get(this));
-            if (level instanceof ServerLevel) {
-                ServerLevel serverLevel = (ServerLevel)level;
-                itemStack.hurtWithoutBreaking(1, player);
-                ItemStack itemStack2 = itemStack.consumeAndReturn(1, player);
-                ThrownAnchor thrownAnchor = Projectile.spawnProjectileFromRotation(ThrownAnchor::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
-                thrownAnchor.setReturnSlot(player.getInventory().getSelectedSlot());
-                if (player.hasInfiniteMaterials()) {
-                    thrownAnchor.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
-                }
-
-                level.playSound(null, thrownAnchor, holder.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
-                return true;
-            }
-        }
-        return false;
     }
 
 
@@ -84,8 +55,9 @@ public class AnchorItem extends Item implements ProjectileItem {
                 player.awardStat(Stats.ITEM_USED.get(this));
                 if (level instanceof ServerLevel) {
                     ServerLevel serverLevel = (ServerLevel) level;
-                    itemStack.hurtWithoutBreaking(1, player);
-                    player.getCooldowns().addCooldown(itemStack, 30);
+                    int damage = ItemUtils.hasEnchantment(itemStack, "shockwave") ? 2 : 1;
+                    itemStack.hurtWithoutBreaking(damage, player);
+                    if (ItemUtils.hasEnchantment(itemStack, "shockwave")) player.getCooldowns().addCooldown(itemStack, 30);
                     ItemStack itemStack2 = itemStack.consumeAndReturn(1, player);
                     ThrownAnchor thrownAnchor = Projectile.spawnProjectileFromRotation(ThrownAnchor::new, serverLevel, itemStack2, player, 0.0F, 2.5F, 1.0F);
                     thrownAnchor.setReturnSlot(player.getInventory().getSelectedSlot());
@@ -105,9 +77,9 @@ public class AnchorItem extends Item implements ProjectileItem {
         int bonusDamage = 5;
         DamageSource damageSource = livingEntity.damageSources().source(DamageTypes.GENERIC_KILL, livingEntity2);
         if (livingEntity.isInWaterOrRain() && livingEntity.level() != null) {
-            livingEntity.hurt(damageSource, 9 + bonusDamage);
+            livingEntity.hurt(damageSource, 8 + bonusDamage);
         } else {
-            livingEntity.hurt(damageSource, 9);
+            livingEntity.hurt(damageSource, 8);
         }
     }
 

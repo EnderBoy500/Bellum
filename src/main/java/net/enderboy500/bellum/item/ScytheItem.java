@@ -12,8 +12,8 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 
 public class ScytheItem extends Item {
     public ScytheItem(ToolMaterial material, Properties properties) {
-        super(material.applyToolProperties(properties.component(CipherLibComponents.CAN_TILL, true), BlockTags.MINEABLE_WITH_HOE, 3, -3, 0).attributes(ItemAttributeModifiers.builder()
-                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(Bellum.id("extra_reach"), 1.25f, AttributeModifier.Operation.ADD_VALUE),
+        super(material.applyToolProperties(properties.component(CipherLibComponents.HAS_SWEEP_ATTACK, true).stacksTo(1).component(CipherLibComponents.CAN_TILL, true), BlockTags.MINEABLE_WITH_HOE, 3, -3, 0).attributes(ItemAttributeModifiers.builder()
+                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(Bellum.id("extra_reach"), 0.75f, AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND).add(
                         Attributes.ATTACK_DAMAGE,
                         new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, 3 + material.attackDamageBonus(), AttributeModifier.Operation.ADD_VALUE),
