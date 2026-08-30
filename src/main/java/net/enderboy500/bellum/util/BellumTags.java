@@ -15,6 +15,7 @@ public class BellumTags {
     public static final TagKey<Item> DAGGERS = RegistryHelper.registerItemTags("daggers");
     public static final TagKey<Item> KUNAIS = RegistryHelper.registerItemTags("kunais");
     public static final TagKey<Item> BATTLE_AXE = RegistryHelper.registerItemTags("battle_axes");
+    public static final TagKey<Item> NAGINATA = RegistryHelper.registerItemTags("naginata");
 
     public static final TagKey<Item> SHIELD_ENCHANTABLE = RegistryHelper.registerItemTags("shield_enchantable");
     public static final TagKey<Item> REAPING_ENCHANTABLE = RegistryHelper.registerItemTags("reaping_enchantable");

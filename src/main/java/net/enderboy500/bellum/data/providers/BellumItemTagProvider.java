@@ -64,6 +64,16 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.NETHERITE_BATTLE_AXE)
         ;
 
+        valueLookupBuilder(BellumTags.NAGINATA)
+                .add(BellumItems.WOODEN_NAGINATA)
+                .add(BellumItems.STONE_NAGINATA)
+                .add(BellumItems.COPPER_NAGINATA)
+                .add(BellumItems.IRON_NAGINATA)
+                .add(BellumItems.GOLDEN_NAGINATA)
+                .add(BellumItems.DIAMOND_NAGINATA)
+                .add(BellumItems.NETHERITE_NAGINATA)
+        ;
+
         valueLookupBuilder(ItemTags.TRIDENT_ENCHANTABLE)
                 .add(BellumItems.HELLFORK)
                 .add(BellumItems.PITCHFORK)
@@ -74,18 +84,21 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .addTag(BellumTags.NAGINATA)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.NAGINATA)
                 .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.NAGINATA)
                 .addTag(BellumTags.BATTLE_AXE)
                 .add(BellumItems.ANCHOR)
         ;
@@ -110,12 +123,14 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.NAGINATA)
                 .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addTag(BellumTags.SICKLES)
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.NAGINATA)
                 .addTag(BellumTags.BATTLE_AXE)
         ;
         valueLookupBuilder(BellumTags.SHIELD_ENCHANTABLE)
@@ -141,6 +156,7 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.DAGGERS)
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
+                .addTag(BellumTags.NAGINATA)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)

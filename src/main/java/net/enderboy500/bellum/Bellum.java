@@ -58,6 +58,7 @@ public class Bellum implements ModInitializer {
 	/// Kunai can be dispensed
 	/// Fixed netherite item not being fire resistent
 	/// Changed damage type of daggers
+	/// Added New elytra enchantment (aside for now)
 
 	@Override
 	public void onInitialize() {
