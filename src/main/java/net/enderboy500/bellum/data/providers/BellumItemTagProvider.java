@@ -164,5 +164,19 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.SCYTHES)
                 .add(BellumItems.ANCHOR)
         ;
+        valueLookupBuilder(ItemTags.PIGLIN_LOVED)
+                .add(BellumItems.GOLDEN_BATTLE_AXE)
+                .add(BellumItems.GOLDEN_DAGGER)
+                .add(BellumItems.GOLDEN_SICKLE)
+                .add(BellumItems.GOLDEN_SCYTHE)
+                .add(BellumItems.GOLDEN_KUNAI)
+                .add(BellumItems.GOLDEN_NAGINATA)
+        ;
+        valueLookupBuilder(BellumTags.LENS)
+                .add(BellumItems.TRUE_SIGHT_LENS)
+                .add(BellumItems.TRACKING_LENS)
+                .add(BellumItems.RECONNAISSANCE_LENS)
+                .add(BellumItems.SEEKER_LENS)
+        ;
     }
 }

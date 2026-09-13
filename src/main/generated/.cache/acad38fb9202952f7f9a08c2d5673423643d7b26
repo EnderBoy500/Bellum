@@ -11,6 +11,7 @@ f02866bf6a72bd3eeb732cc8ae7c72a1334ffa94 data/bellum/advancement/recipes/combat/
 81d9d1016c05dc8d1fe902462359b0fbae507ef8 data/bellum/advancement/recipes/combat/diamond_naginata.json
 b8b2583e306170ee3cec528322cd4b90213a44aa data/bellum/advancement/recipes/combat/diamond_scythe.json
 664624d134e071ca1babc2ee57585c8b2474c0b9 data/bellum/advancement/recipes/combat/diamond_sickle.json
+438f313bc6d25fcb4c6001c2ddb14b3cd7551cd2 data/bellum/advancement/recipes/combat/goggles.json
 e89184023bc51d4e01d628276d23cae774aca036 data/bellum/advancement/recipes/combat/golden_battle_axe.json
 e7dc5a299f83be1b2fef1da7aaa6ef18f6fc8d43 data/bellum/advancement/recipes/combat/golden_dagger.json
 e2619f76eafa119fa5dfa2854e1685586cc5deb1 data/bellum/advancement/recipes/combat/golden_kunai.json
@@ -50,6 +51,7 @@ bbc63615eda91c0237c7411ba42c27dfd4aa891e data/bellum/recipe/diamond_battle_axe.j
 04b025b4ee082a8f680d0bea01058c89c6cd1e0d data/bellum/recipe/diamond_naginata.json
 7d6840dec66bccd548f2bbf231fd498030849eef data/bellum/recipe/diamond_scythe.json
 f4b6493115aeb70ac28180eb765526e4cfd8914a data/bellum/recipe/diamond_sickle.json
+856d84b781f9e5fde95430f3266cc3b270fe8495 data/bellum/recipe/goggles.json
 0c389116e03ec8429a7978414e61486c6ee0f971 data/bellum/recipe/golden_battle_axe.json
 d9f07063011f0d33a4eef2bb0cba57f5eaf0b061 data/bellum/recipe/golden_dagger.json
 a849061bb494929238c8520fb6c6b5126c2b23a4 data/bellum/recipe/golden_kunai.json

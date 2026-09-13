@@ -2,11 +2,10 @@ package net.enderboy500.bellum.content;
 
 import io.github.ciph3rj.cipherlib.helper.RegistryHelper;
 import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
-import net.enderboy500.bellum.item.BattleAxeItem;
-import net.enderboy500.bellum.item.NaginataItem;
+import net.enderboy500.bellum.Bellum;
+import net.enderboy500.bellum.item.*;
 import net.enderboy500.bellum.projectile.*;
-import net.enderboy500.bellum.item.ScytheItem;
-import net.enderboy500.bellum.item.SickleItem;
+import net.enderboy500.bellum.util.BellumDataComponents;
 import net.enderboy500.bellum.util.SmithingTemplateUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.*;
@@ -74,6 +73,13 @@ public class BellumItems {
     public static final Item HELLFORK = register("hellfork", HellforkItem::new, new Item.Properties().rarity(Rarity.EPIC).repairable(Items.BLAZE_ROD).durability(684).attributes(HellforkItem.createAttributes()).component(DataComponents.TOOL, HellforkItem.createToolProperties()).enchantable(1).component(DataComponents.WEAPON, new Weapon(1)));
     public static final Item PITCHFORK = register("pitchfork", PitchforkItem::new, new Item.Properties().rarity(Rarity.COMMON).repairable(Items.IRON_INGOT).durability(84).attributes(PitchforkItem.createAttributes()).component(DataComponents.TOOL, PitchforkItem.createToolProperties()).enchantable(1).component(DataComponents.WEAPON, new Weapon(1)));
     public static final Item ANCHOR = register("anchor", AnchorItem::new, new Item.Properties().rarity(Rarity.EPIC).durability(765).component(CipherLibComponents.HAS_SWEEP_ATTACK, true));
+
+    public static final Item GOGGLES = register("goggles", GogglesItem::new, new Item.Properties().stacksTo(1));
+
+    public static final Item TRUE_SIGHT_LENS = register("true_sight_lens", Item::new, new Item.Properties().stacksTo(16).component(BellumDataComponents.SHADER_EFFECT, Bellum.id("blue_overlay")));
+    public static final Item SEEKER_LENS = register("seeker_lens", Item::new, new Item.Properties().stacksTo(16).component(BellumDataComponents.SHADER_EFFECT, Bellum.id("green_overlay")));
+    public static final Item TRACKING_LENS = register("tracking_lens", Item::new, new Item.Properties().stacksTo(16).component(BellumDataComponents.SHADER_EFFECT, Bellum.id("yellow_overlay")));
+    public static final Item RECONNAISSANCE_LENS = register("reconnaissance_lens", Item::new, new Item.Properties().stacksTo(16).component(BellumDataComponents.SHADER_EFFECT, Bellum.id("purple_overlay")));
 
     public static final Item HELLFORK_UPGRADE_SMITHING_TEMPLATE = register("hellfork_upgrade_smithing_template", SmithingTemplateUtil::createHellforkUpgradeTemplate, (new Item.Properties()).rarity(Rarity.RARE).fireResistant());
 

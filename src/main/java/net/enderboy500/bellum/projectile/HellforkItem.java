@@ -4,10 +4,13 @@ import io.github.ciph3rj.cipherlib.item.component.CipherLibComponents;
 import io.github.ciph3rj.cipherlib.util.ItemUtils;
 import net.enderboy500.bellum.Bellum;
 import net.enderboy500.bellum.content.BellumDamageTypes;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Position;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -29,9 +32,17 @@ import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.block.CandleCakeBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
@@ -155,6 +166,23 @@ public class HellforkItem extends Item implements ProjectileItem {
     public void hurtEnemy(ItemStack itemStack, LivingEntity livingEntity, LivingEntity livingEntity2) {
         livingEntity.setRemainingFireTicks(100);
         super.postHurtEnemy(itemStack, livingEntity, livingEntity2);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext useOnContext) {
+        Player player = useOnContext.getPlayer();
+        Level level = useOnContext.getLevel();
+        BlockPos blockPos = useOnContext.getClickedPos();
+        BlockState blockState = level.getBlockState(blockPos);
+        if (CampfireBlock.canLight(blockState) || CandleBlock.canLight(blockState) || CandleCakeBlock.canLight(blockState)) {
+            level.playSound(player, blockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+            level.setBlock(blockPos, (BlockState)blockState.setValue(BlockStateProperties.LIT, true), 11);
+            level.gameEvent(player, GameEvent.BLOCK_CHANGE, blockPos);
+            if (player != null) {
+                useOnContext.getItemInHand().hurtAndBreak(1, player, useOnContext.getHand().asEquipmentSlot());
+            }
+            return InteractionResult.SUCCESS;
+        } else return InteractionResult.PASS;
     }
 
     public Projectile asProjectile(Level level, Position position, ItemStack itemStack, Direction direction) {

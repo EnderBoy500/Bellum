@@ -66,6 +66,12 @@ public class BellumCreativeModeTabs {
                         output.accept(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE);
                         output.accept(BellumItems.HELLFORK);
                         output.accept(BellumItems.ANCHOR);
+
+                        output.accept(BellumItems.GOGGLES);
+                        output.accept(BellumItems.TRUE_SIGHT_LENS);
+                        output.accept(BellumItems.TRACKING_LENS);
+                        output.accept(BellumItems.RECONNAISSANCE_LENS);
+                        output.accept(BellumItems.SEEKER_LENS);
                     }
                     )).build());
 

@@ -44,5 +44,10 @@ public class BellumModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(BellumItems.NETHERITE_KUNAI, ModelTemplates.FLAT_HANDHELD_ITEM);
 
         itemModelGenerators.generateFlatItem(BellumItems.HELLFORK_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerators.generateFlatItem(BellumItems.TRUE_SIGHT_LENS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.TRACKING_LENS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.RECONNAISSANCE_LENS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(BellumItems.SEEKER_LENS, ModelTemplates.FLAT_ITEM);
     }
 }

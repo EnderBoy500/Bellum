@@ -36,9 +36,12 @@ public class Bellum implements ModInitializer {
 	public static final Identifier DEFAULT_ANCHOR_CHAIN = id("textures/entity/anchor_chain/default_chain.png");
 	public static final Identifier SOUL_ANCHOR_CHAIN = id("textures/entity/anchor_chain/soul_chain.png");
 
-	//TODO: Fix skins for battleaxes
+	public static final Identifier DEFAULT_GOGGLES = id("textures/entity/goggles/goggles_default.png");
 
-	///Change Log 1.3.0:
+	//TODO: Fix skins for battleaxes
+	//TODO: add flint and steel interactions to certain blocks
+
+	///Change Log 1.3.0:F
 	/// Changed how sickles work
 	/// Lowered the damage and attack speed of sickles
 	/// new look to the battle axe
@@ -59,6 +62,7 @@ public class Bellum implements ModInitializer {
 	/// Fixed netherite item not being fire resistent
 	/// Changed damage type of daggers
 	/// Added New elytra enchantment (aside for now)
+	/// Added Goggles
 
 	@Override
 	public void onInitialize() {
@@ -118,6 +122,11 @@ public class Bellum implements ModInitializer {
 		CanEntityHealEvent.EVENT.register(livingEntity -> {
 			return !livingEntity.hasEffect(BellumMobEffects.BLEEDING);
 		});
+
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.ANCIENT_CITY, BellumItems.TRUE_SIGHT_LENS, 1, 0, 1);
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.SIMPLE_DUNGEON, BellumItems.RECONNAISSANCE_LENS, 1, 0, 1);
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.NETHER_FORTRESS, BellumItems.SEEKER_LENS, 1, 0, 1);
+		LootTableModificationHelper.addLootTableModification(VanillaChestLootTableList.JUNGLE_TEMPLE, BellumItems.TRACKING_LENS, 1, 0, 1);
 
 		LOGGER.info("Finished Initializing Bellum");
 	}

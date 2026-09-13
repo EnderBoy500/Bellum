@@ -12,7 +12,11 @@
 		"LivingEntityMixin",
 		"ModelRenderingMixin",
 		"FireChargeItemMixin",
-		"BlockAttacksMixin"
+		"BlockAttacksMixin",
+		"HumanoidArmorLayerMixin",
+		"EntityMixin",
+		"GameRendererMixin",
+		"MinecraftMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

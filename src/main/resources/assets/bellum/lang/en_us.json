@@ -49,6 +49,11 @@
   "item.bellum.diamond_naginata": "Diamond Naginata",
   "item.bellum.netherite_naginata": "Netherite Naginata",
 
+  "item.bellum.goggles": "Goggles",
+  "item.bellum.true_sight_lens": "True Sight Lens",
+  "item.bellum.seeker_lens": "Seeker Lens",
+  "item.bellum.tracking_lens": "Tracking Lens",
+  "item.bellum.reconnaissance_lens": "Reconnaissance Lens",
 
   "item.skin.bellum.ciphered_sickle": "Ciphered Sickle",
   "item.skin.bellum.soul_sickle": "Soul Sickle",
@@ -78,6 +83,7 @@
   "enchantment.bellum.rocket_boost.desc": "Gives a boost when flying with Elytra and jumping",
 
   "tooltip.bellum.kunai.effect": "Effect(s): ",
+  "tooltip.bellum.goggles.lens": "Lens: ",
 
   "sounds.bellum.soul_sweep_attack": "Soul Sweep Attack",
 
@@ -85,8 +91,10 @@
   "death.attack.drained_soul.player": "%1$s irresponsibly drained their soul while irresponsibly escaping %2$s",
   "death.attack.refected": "%1$s died to their own damage",
   "death.attack.refected.player": "%1$s died to their own damage while fighting %2$s",
+  "death.attack.refected.item": "%1$s died to their own damage while fighting %2$s using %3$s",
   "death.attack.stabbed": "%1$s was stabbed",
   "death.attack.stabbed.player": "%1$s was stabbed by %2$s",
+  "death.attack.stabbed.item": "%1$s was stabbed by %2$s using %3$s",
 
   "itemgroup.bellum": "Bellum"
 }

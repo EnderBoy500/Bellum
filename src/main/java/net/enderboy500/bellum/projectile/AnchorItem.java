@@ -75,7 +75,7 @@ public class AnchorItem extends Item implements ProjectileItem {
     @Override
     public void hurtEnemy(ItemStack itemStack, LivingEntity livingEntity, LivingEntity livingEntity2) {
         int bonusDamage = 5;
-        DamageSource damageSource = livingEntity.damageSources().source(DamageTypes.GENERIC_KILL, livingEntity2);
+        DamageSource damageSource = livingEntity.damageSources().mobAttack(livingEntity2);
         if (livingEntity.isInWaterOrRain() && livingEntity.level() != null) {
             livingEntity.hurt(damageSource, 8 + bonusDamage);
         } else {

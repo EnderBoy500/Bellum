@@ -91,6 +91,9 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
 
         this.shaped(RecipeCategory.COMBAT, BellumItems.PITCHFORK).define('/', Items.STICK).define('#', Items.IRON_INGOT)
                 .pattern(" ##").pattern(" /#").pattern("/  ").unlockedBy(getHasName(BellumItems.PITCHFORK), has(Items.IRON_INGOT)).save(output);
+
+        this.shaped(RecipeCategory.COMBAT, BellumItems.GOGGLES).define('A', Items.AMETHYST_SHARD).define('C', Items.COPPER_INGOT).define('L', Items.LEATHER)
+                .define('S', Items.STRING).pattern("LSL").pattern("ACA").unlockedBy(getHasName(BellumItems.GOGGLES), has(Items.AMETHYST_SHARD)).save(output);
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {

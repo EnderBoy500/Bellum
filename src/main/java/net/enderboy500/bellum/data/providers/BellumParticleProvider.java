@@ -20,6 +20,9 @@ public class BellumParticleProvider extends ParticleResourceProvider {
         output.accept(BellumParticleTypes.CIPHERED_SWEEP, getNumberedList(Bellum.id("sweeps/ciphered_sweep"), 7));
         output.accept(BellumParticleTypes.SOUL_SWEEP, getNumberedList(Bellum.id("sweeps/soul_sweep"), 7));
         output.accept(BellumParticleTypes.SHOCKWAVE, getNumberedList(Bellum.id("shockwave"), 7));
+        output.accept(BellumParticleTypes.FOOTSTEPS, Bellum.id("footstep"));
+        output.accept(BellumParticleTypes.SAFE_INDICATOR, Bellum.id("safe_indicator"));
+        output.accept(BellumParticleTypes.DANGER_INDICATOR, Bellum.id("danger_indicator"));
     }
 
     public List<Identifier> getNumberedList(Identifier base, int i) {

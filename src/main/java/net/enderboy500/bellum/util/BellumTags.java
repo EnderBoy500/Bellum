@@ -17,6 +17,8 @@ public class BellumTags {
     public static final TagKey<Item> BATTLE_AXE = RegistryHelper.registerItemTags("battle_axes");
     public static final TagKey<Item> NAGINATA = RegistryHelper.registerItemTags("naginata");
 
+    public static final TagKey<Item> LENS = RegistryHelper.registerItemTags("lens");
+
     public static final TagKey<Item> SHIELD_ENCHANTABLE = RegistryHelper.registerItemTags("shield_enchantable");
     public static final TagKey<Item> REAPING_ENCHANTABLE = RegistryHelper.registerItemTags("reaping_enchantable");
     public static final TagKey<Item> REELING_ENCHANTABLE = RegistryHelper.registerItemTags("reeling_enchantable");
@@ -28,6 +30,7 @@ public class BellumTags {
 
     public static final TagKey<EntityType<?>> DROPS_ATTUNING = RegistryHelper.registerEntityTags("drops_attuning");
     public static final TagKey<EntityType<?>> DROPS_SHOCKWAVE = RegistryHelper.registerEntityTags("drop_shockwave");
+    public static final TagKey<EntityType<?>> UNSEEKABLE = RegistryHelper.registerEntityTags("unseekable");
 
 
     public static final TagKey<Enchantment> INCOMPATIBLE_WITH_ATTUNING = TagKey.create(Registries.ENCHANTMENT, Bellum.id("incompatible_with_attuning"));

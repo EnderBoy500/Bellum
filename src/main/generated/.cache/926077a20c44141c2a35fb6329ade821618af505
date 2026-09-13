@@ -3,6 +3,7 @@
 21c8278f5acc4bb760343bbf14aadb7b7863f190 data/bellum/tags/item/battle_axes.json
 4058207a14e3ec7d661ac92f1322797b78778b0d data/bellum/tags/item/daggers.json
 3d3c331e49c0b184363fb5441e4cd69b85a025aa data/bellum/tags/item/kunais.json
+d631880ce7f4eb736d12a9224e1d1ee2e30e8729 data/bellum/tags/item/lens.json
 352625a944a14cc79c98038162a0b13cc93a7371 data/bellum/tags/item/naginata.json
 43720444137cbce6613c64d9d7199ff67d77e7fc data/bellum/tags/item/reaping_enchantable.json
 4b654bba659427ef52582e3d8375853107ccae4b data/bellum/tags/item/reeling_enchantable.json
@@ -22,3 +23,4 @@ becc7b4c74e57ca76e9f4f54d683c3b6501cd87b data/minecraft/tags/item/enchantable/sh
 18706d77e226e476e4cbeb8d94a12814245ea769 data/minecraft/tags/item/enchantable/trident.json
 6716daee91db0821412e8a9072a0bd308d027197 data/minecraft/tags/item/enchantable/vanishing.json
 becc7b4c74e57ca76e9f4f54d683c3b6501cd87b data/minecraft/tags/item/enchantable/weapon.json
+10f7503e9ea35da7ddca8b4f1d8b0be6bb36099e data/minecraft/tags/item/piglin_loved.json

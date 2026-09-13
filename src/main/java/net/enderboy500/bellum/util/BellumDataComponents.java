@@ -6,6 +6,7 @@ import net.enderboy500.bellum.util.component.KunaiEffectComponent;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
 
 public class BellumDataComponents {
     public static final DataComponentType<Float> KUNAI_ATTACK_DAMAGE = RegistryHelper.registerDataComponent("kunai_attack_damage",
@@ -14,6 +15,8 @@ public class BellumDataComponents {
             builder -> builder.persistent(KunaiEffectComponent.CODEC).networkSynchronized(KunaiEffectComponent.PACKET_CODEC));
     public static final DataComponentType<Identifier> ANCHOR_CHAIN = RegistryHelper.registerDataComponent("achor_chain",
             builder -> builder.persistent(Identifier.CODEC).networkSynchronized(Identifier.STREAM_CODEC));
+    public static DataComponentType<ItemStack> LENS = RegistryHelper.registerDataComponent("lens", itemStackBuilder -> itemStackBuilder.persistent(ItemStack.CODEC).networkSynchronized(ItemStack.STREAM_CODEC));
+    public static DataComponentType<Identifier> SHADER_EFFECT = RegistryHelper.registerDataComponent("shader_effect", itemStackBuilder -> itemStackBuilder.persistent(Identifier.CODEC).networkSynchronized(Identifier.STREAM_CODEC));
 
     public static void loadDataComponents() {}
 }

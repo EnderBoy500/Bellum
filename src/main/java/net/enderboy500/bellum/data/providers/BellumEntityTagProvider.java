@@ -28,5 +28,10 @@ public class BellumEntityTagProvider extends FabricTagProvider.EntityTypeTagProv
         valueLookupBuilder(BellumTags.DROPS_ATTUNING)
                 .add(EntityType.ELDER_GUARDIAN)
         ;
+        valueLookupBuilder(BellumTags.UNSEEKABLE)
+                .add(EntityType.ENDER_DRAGON)
+                .add(EntityType.WITHER)
+                .add(EntityType.ARMOR_STAND)
+        ;
     }
 }
