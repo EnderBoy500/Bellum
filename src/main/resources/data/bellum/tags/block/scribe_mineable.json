@@ -1,0 +1,35 @@
+{
+  "values": [
+    "#minecraft:ice",
+    "minecraft:enchanting_table",
+    "minecraft:sea_lantern",
+    "minecraft:amethyst_block",
+    "minecraft:beacon",
+    "minecraft:respawn_anchor",
+    "minecraft:redstone_lamp",
+    {
+      "id": "#c:glass_blocks",
+      "required": false
+    },
+    {
+      "id": "#c:buds",
+      "required": false
+    },
+    {
+      "id": "#c:obsidians",
+      "required": false
+    },
+    {
+      "id": "#c:clusters",
+      "required": false
+    },
+    {
+      "id": "#c:budding_blocks",
+      "required": false
+    },
+    {
+      "id": "#c:glass_panes",
+      "required": false
+    }
+  ]
+}

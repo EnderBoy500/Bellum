@@ -16,7 +16,9 @@
 		"HumanoidArmorLayerMixin",
 		"EntityMixin",
 		"GameRendererMixin",
-		"MinecraftMixin"
+		"MinecraftMixin",
+		"IceBlockMixin",
+		"BlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

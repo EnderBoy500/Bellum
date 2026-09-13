@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:ice",
+    {
+      "id": "#c:obsidians",
+      "required": false
+    },
+    {
+      "id": "#c:clusters",
+      "required": false
+    },
+    {
+      "id": "#c:budding_blocks",
+      "required": false
+    }
+  ]
+}

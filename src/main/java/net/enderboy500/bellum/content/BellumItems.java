@@ -98,6 +98,11 @@ public class BellumItems {
     public static final Item NETHERITE_NAGINATA = register("netherite_naginata", properties -> new NaginataItem(ToolMaterial.NETHERITE, properties),
             new Item.Properties().fireResistant());
 
+    public static final Item COPPER_SCRIBE = register("copper_scribe", properties -> new ScribeItem(ToolMaterial.COPPER, properties), new Item.Properties());
+    public static final Item IRON_SCRIBE = register("iron_scribe", properties -> new ScribeItem(ToolMaterial.IRON, properties), new Item.Properties());
+    public static final Item GOLDEN_SCRIBE = register("golden_scribe", properties -> new ScribeItem(ToolMaterial.GOLD, properties), new Item.Properties());
+    public static final Item NETHERITE_SCRIBE = register("netherite_scribe", properties -> new ScribeItem(ToolMaterial.NETHERITE, properties), new Item.Properties());
+
     public static Item register(String id, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         return RegistryHelper.registerItem(id, itemFactory, settings);
     }

@@ -74,6 +74,13 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.NETHERITE_NAGINATA)
         ;
 
+        valueLookupBuilder(BellumTags.SCRIBE)
+                .add(BellumItems.COPPER_SCRIBE)
+                .add(BellumItems.IRON_SCRIBE)
+                .add(BellumItems.GOLDEN_SCRIBE)
+                .add(BellumItems.NETHERITE_SCRIBE)
+        ;
+
         valueLookupBuilder(ItemTags.TRIDENT_ENCHANTABLE)
                 .add(BellumItems.HELLFORK)
                 .add(BellumItems.PITCHFORK)
@@ -100,16 +107,19 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.NAGINATA)
                 .addTag(BellumTags.BATTLE_AXE)
+                .addTag(BellumTags.SCRIBE)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.MINING_ENCHANTABLE)
                 .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.SCRIBE)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
                 .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.SCYTHES)
+                .addTag(BellumTags.SCRIBE)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(ItemTags.FIRE_ASPECT_ENCHANTABLE)
@@ -157,6 +167,7 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BellumTags.SCYTHES)
                 .addTag(BellumTags.BATTLE_AXE)
                 .addTag(BellumTags.NAGINATA)
+                .addTag(BellumTags.SCRIBE)
                 .add(BellumItems.ANCHOR)
         ;
         valueLookupBuilder(BellumTags.REAPING_ENCHANTABLE)
@@ -171,6 +182,7 @@ public class BellumItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BellumItems.GOLDEN_SCYTHE)
                 .add(BellumItems.GOLDEN_KUNAI)
                 .add(BellumItems.GOLDEN_NAGINATA)
+                .add(BellumItems.GOLDEN_SCRIBE)
         ;
         valueLookupBuilder(BellumTags.LENS)
                 .add(BellumItems.TRUE_SIGHT_LENS)

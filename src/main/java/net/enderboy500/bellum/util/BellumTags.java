@@ -8,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.block.Block;
 
 public class BellumTags {
     public static final TagKey<Item> SICKLES = RegistryHelper.registerItemTags("sickles");
@@ -16,8 +17,12 @@ public class BellumTags {
     public static final TagKey<Item> KUNAIS = RegistryHelper.registerItemTags("kunais");
     public static final TagKey<Item> BATTLE_AXE = RegistryHelper.registerItemTags("battle_axes");
     public static final TagKey<Item> NAGINATA = RegistryHelper.registerItemTags("naginata");
+    public static final TagKey<Item> SCRIBE = RegistryHelper.registerItemTags("scribes");
 
     public static final TagKey<Item> LENS = RegistryHelper.registerItemTags("lens");
+
+    public static final TagKey<Block> SCRIBE_MINEABLE = RegistryHelper.registerBlockTags("scribe_mineable");
+    public static final TagKey<Block> SILKTOUCH_WITH_SCRIBE_BLACKLIST = RegistryHelper.registerBlockTags("silktouch_with_scribe_blacklist");
 
     public static final TagKey<Item> SHIELD_ENCHANTABLE = RegistryHelper.registerItemTags("shield_enchantable");
     public static final TagKey<Item> REAPING_ENCHANTABLE = RegistryHelper.registerItemTags("reaping_enchantable");

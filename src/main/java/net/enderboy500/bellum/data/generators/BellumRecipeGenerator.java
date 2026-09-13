@@ -94,6 +94,16 @@ public class BellumRecipeGenerator extends CipherLibRecipeGenerator {
 
         this.shaped(RecipeCategory.COMBAT, BellumItems.GOGGLES).define('A', Items.AMETHYST_SHARD).define('C', Items.COPPER_INGOT).define('L', Items.LEATHER)
                 .define('S', Items.STRING).pattern("LSL").pattern("ACA").unlockedBy(getHasName(BellumItems.GOGGLES), has(Items.AMETHYST_SHARD)).save(output);
+
+        generateScribe(Items.IRON_INGOT, BellumItems.IRON_SCRIBE);
+        generateScribe(Items.COPPER_INGOT, BellumItems.COPPER_SCRIBE);
+        generateScribe(Items.GOLD_INGOT, BellumItems.GOLDEN_SCRIBE);
+        generateScribe(Items.NETHERITE_INGOT, BellumItems.NETHERITE_SCRIBE);
+    }
+
+    public void generateScribe(ItemLike base, Item outputItem) {
+        this.shaped(RecipeCategory.TOOLS, outputItem).define('#', base).define('/', Items.AMETHYST_SHARD).pattern(" /").pattern("# ")
+                .unlockedBy(getHasName(outputItem), has(base)).save(output);
     }
 
     public void generateDagger(ItemLike base, Item outputItem) {

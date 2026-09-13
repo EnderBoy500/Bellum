@@ -67,6 +67,11 @@ public class BellumCreativeModeTabs {
                         output.accept(BellumItems.HELLFORK);
                         output.accept(BellumItems.ANCHOR);
 
+                        output.accept(BellumItems.COPPER_SCRIBE);
+                        output.accept(BellumItems.IRON_SCRIBE);
+                        output.accept(BellumItems.GOLDEN_SCRIBE);
+                        output.accept(BellumItems.NETHERITE_SCRIBE);
+
                         output.accept(BellumItems.GOGGLES);
                         output.accept(BellumItems.TRUE_SIGHT_LENS);
                         output.accept(BellumItems.TRACKING_LENS);
